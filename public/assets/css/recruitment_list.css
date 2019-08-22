@@ -31,6 +31,7 @@
 .Tab__Item--active--blue {
   color: #265EB8;
   cursor: default;
+  pointer-events: none;
 }
 
 .RecruitList .Tab {
@@ -39,7 +40,8 @@
 
 .RecruitList .Select {
   margin-bottom: 32px;
-  width: 50%;
+  max-width: 350px;
+  width: 100%;
 }
 
 .RecruitList__Title {
@@ -176,7 +178,6 @@
 
   .RecruitList .Select {
     margin-bottom: 24px;
-    width: 100%;
   }
 
   .RecruitList__Title {

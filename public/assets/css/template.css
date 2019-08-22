@@ -50,6 +50,25 @@
   width: 50px;
 }
 
+.Footer {
+  background-color: #fff;
+  border-top: 1px solid #D4D4D4;
+  height: 60px;
+  padding: 12px;
+  text-align: center;
+}
+
+.Footer__Name {
+  color: #2A2A3A;
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.Footer__Copyright {
+  color: #D4D4D4;
+  font-size: 1.0rem;
+}
+
 @media screen and (max-width: 762px) {
 
   .Header {

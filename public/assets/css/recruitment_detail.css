@@ -1,0 +1,361 @@
+.Recruitment {
+  margin: 0 auto;
+  max-width: 730px;
+  padding: 60px 12px;
+  width: 100%;
+}
+
+.Recruitment__Top {
+  display: grid;
+  grid-template-areas:
+        "img status"
+        "img sns";
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 50px;
+  grid-gap: 32px;
+  margin-bottom: 40px;
+}
+
+.Recruitment__Img {
+  grid-area: img;
+  width: 100%;
+}
+
+.Recruitment__Category {
+  align-items: center;
+  color: #265EB8;
+  display: flex;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.Recruitment__Category:before {
+  background-image: url(/assets/images/flag_blue.svg);
+  background-size: 20px;
+  content: "";
+  display: block;
+  height: 20px;
+  margin-right: 8px;
+  width: 20px;
+}
+
+.Recruitment__Description {
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  line-height: 24px;
+}
+
+.Recruitment__Apply {
+  color: #265EB8;
+  font-size: 2.4rem;
+  font-weight: normal;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.RecruitmentStatus {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: status;
+  justify-content: space-between;
+  margin-bottom: -32px;
+  width: 100%;
+}
+
+.RecruitmentStatus__Item {
+  margin-bottom: 24px;
+  width: calc(50% - 16px);
+}
+
+.RecruitmentStatus__Title {
+  align-items: center;
+  color: #265EB8;
+  display: flex;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.RecruitmentStatus__Title:before {
+  background-size: 20px;
+  content: "";
+  display: block;
+  height: 20px;
+  margin-right: 8px;
+  width: 20px;
+}
+
+.RecruitmentStatus__Title--money:before {
+  background-image: url(/assets/images/money_blue.svg);
+}
+
+.RecruitmentStatus__Title--clock:before {
+  background-image: url(/assets/images/clock_blue.svg);
+}
+
+.RecruitmentStatus__Title--person:before {
+  background-image: url(/assets/images/person_blue.svg);
+}
+
+.RecruitmentStatus__Content {
+  font-size: 2.4rem;
+}
+
+.RecruitmentSns {
+  display: flex;
+}
+
+.RecruitmentSns--top {
+  grid-area: sns;
+}
+
+.RecruitmentSns--bottom {
+  display: none;
+}
+
+.RecruitmentSns__Item:first-child {
+  margin-right: 24px;
+}
+
+.RecruitmentSns__Image {
+  height: 50px;
+  width: 50px;
+}
+
+.Tab {
+  border: 1px solid #E8E7E9;
+  box-shadow: 0px 2px 4px rgba(51, 51, 51, 0.2);
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+.Tab__Item {
+  color: #D4D4D4;
+  cursor: pointer;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  width: 50%;
+}
+
+.Tab__Item:first-child {
+  border-right: 1px solid #E8E7E9;
+}
+
+.Tab__Item--active--blue {
+  color: #265EB8;
+  cursor: default;
+}
+
+.Recruitment .Tab {
+  margin-bottom: 32px;
+}
+
+.RecruitmentLogin {
+  align-items: center;
+  border-radius: 4px;
+  border: 2px solid #265EB8;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+
+.RecruitmentLogin__Title {
+  font-size: 2.0rem;
+  font-weight: normal;
+  color: #265EB8;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.RecruitmentLogin .RecruitmentForm {
+  max-width: 350px;
+}
+
+.RecruitmentForm {
+  width: 100%;
+}
+
+.RecruitmentForm .RecruitmentForm__Item {
+  display: flex;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.RecruitmentForm__Label {
+  font-size: 14px;
+  margin-right: 32px;
+  width: 158px;
+}
+
+.RecruitmentForm__Input {
+  width: 100%;
+}
+
+.RecruitmentForm .RecruitmentForm__Textarea {
+  height: 200px;
+}
+
+.Recruitment .btn--blue {
+  background-color: #265EB8;
+  color: #fff;
+  display: block;
+  margin: 24px auto 12px;
+  width: 320px;
+}
+
+.Recruitment .RecruitmentCard {
+  margin-bottom: 24px;
+}
+
+.RecruitmentCard {
+  background-color: #fff;
+  border: 1px solid #D4D4D4;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.RecruitmentCard__Top {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.RecruitmentCard__User {
+  align-items: center;
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.RecruitmentCard__UserIcon {
+  height: 36px;
+  margin-right: 12px;
+  width: 36px;
+}
+
+.RecruitmentCard__UserName {
+  font-size: 2.4rem;
+}
+
+.RecruitmentCard__Date {
+  color: #D4D4D4;
+  font-size: 1.2rem;
+}
+
+.RecruitmentCard__Money {
+  align-items: center;
+  color: #265EB8;
+  display: flex;
+  font-size: 2.0rem;
+}
+
+.RecruitmentCard__Money:before {
+  background-image: url(/assets/images/money_blue.svg);
+  background-size: 28px;
+  content: "";
+  display: block;
+  height: 28px;
+  margin-right: 8px;
+  width: 28px;
+}
+
+.RecruitmentCard__Content {
+  font-size: 1.4rem;
+  line-height: 22px;
+}
+
+.Recruitment__Pagination {
+  margin-top: 32px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 762px) {
+  .Recruitment {
+    padding-top: 36px;
+  }
+
+  .Recruitment__Apply {
+    font-size: 2.0rem;
+    margin-bottom: 20px;
+  }
+
+  .Recruitment__Top {
+    grid-template-areas:
+      "img"
+      "status";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 140px;
+    grid-gap: 24px;
+  }
+
+  .RecruitmentSns--top {
+    display: none;
+  }
+
+  .RecruitmentSns--bottom {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+
+  .Recruitment__Description {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+  }
+
+  .Tab {
+    width: 100vw;
+    margin-left: -14px;
+  }
+
+  .Recruitment .Tab {
+    margin-bottom: 24px;
+  }
+
+  .RecruitmentForm .RecruitmentForm__Item {
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+
+  .RecruitmentForm__Label {
+    margin: 0 0 8px 0;
+    width: 100px;
+  }
+
+  .Recruitment .btn {
+    width: 100%;
+  }
+
+  .Recruitment .RecruitmentCard {
+    margin-bottom: 16px;
+  }
+
+  .RecruitmentCard__UserIcon {
+    height: 20px;
+    margin-right: 4px;
+    width: 20px;
+  }
+
+  .RecruitmentCard__UserName {
+    font-size: 1.8rem;
+  }
+
+  .RecruitmentCard__Money {
+    font-size: 1.6rem;
+  }
+
+  .RecruitmentCard__Money:before {
+    height: 20px;
+    width: 20px;
+    background-size: 20px;
+    margin-right: 8px;
+  }
+
+  .Recruitment__Pagination {
+    margin-top: 24px;
+  }
+}

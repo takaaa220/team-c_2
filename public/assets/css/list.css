@@ -1,0 +1,105 @@
+
+h2{
+  margin-left: 40px;
+}
+
+.flex-container{
+  width: calc(100% - 80px);
+  height: 100%;
+  display: flex;
+  margin: 0 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.box{
+  width: calc(100% / 3 - 10px);
+  width: 280px;
+  height: 230px;
+  display: block;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.box img{
+  width: 100%;
+}
+
+.box h4{
+  margin-right: 20px;
+  text-align: right;
+}
+
+.box .status{
+  color: orange;
+  display: block;
+  margin: 5px auto;
+  font-size: 12px;
+  text-align: center;
+}
+
+.box .status div{
+  display: inline-block;
+}
+
+.box .status div span,
+.box .status div span img{
+  width: 12px;
+  height: 12px;
+}
+
+.box .status div p{
+  padding: 0;
+  margin:0 ;
+}
+
+
+
+/* セレクトメニュー */
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+	margin: 2em auto;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl01 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.cp_ipselect.cp_sl01::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl01 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}

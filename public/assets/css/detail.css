@@ -65,3 +65,105 @@
   width: 30px;
   height:30px;
 }
+
+
+
+/** ログインしていた場合 **/
+#message{
+  width: 80%;
+  margin: 60px auto 0;
+  text-align: center;
+}
+
+/* 入力フォーム */
+.cp_iptxt {
+	width: 90%;
+  height: 43px;
+  display: block;
+	margin: 20px auto;
+}
+.cp_textarea{
+  height: 268px;
+}
+.cp_iptxt input[type=text],
+.cp_iptxt textarea[name=text] {
+	box-sizing: border-box;
+	width: 100%;
+  display: block;
+	padding: 0.3em 0;
+	transition: 0.3s;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+}
+.cp_iptxt input[type=text]:focus,
+.cp_iptxt textarea[name=text]:focus {
+	border-color: #da3c41;
+}
+.cp_iptxt input[type=text],
+.cp_iptxt textarea[name=text] {
+  padding: 8px 38px 8px 8px;
+}
+.cp_iptxt input + p,
+.cp_iptxt textarea + p{
+  color: #bbbbbb;
+  display: block;
+}
+
+/* セレクタメニュー */
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+  margin: 20px auto;
+  display: block;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl01 {
+	position: relative;
+	background: #ffffff;
+}
+.cp_ipselect.cp_sl01::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl01 select {
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
+
+input[type=submit]{
+  width: 80%;
+  background-color: orange;
+  padding: 8px 38px 8px 8px;
+  color: white;
+  border-radius: 8px;
+  margin: 60px auto;
+  border: 0;
+}

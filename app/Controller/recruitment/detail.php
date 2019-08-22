@@ -8,6 +8,6 @@ use Slim\Http\Response;
 $app->get('/recruitment/{recruitment_id}', function (Request $request, Response $response, $args) {
     $data = [];
 
-    return $this->view->render($response, 'recruitment_id/detail.twig', $data);
+    return $this->view->render($response, 'recruitment/detail.twig', $data);
 
 });

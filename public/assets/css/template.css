@@ -1,0 +1,118 @@
+
+
+.Header {
+  background-color: #fff;
+  border-bottom: 1px solid #D4D4D4;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.Header__Icon {
+  font-size: 2.6rem;
+  line-height: 100px;
+}
+
+.Header__Icon > a {
+  color: #2A2A3A;
+}
+
+.Header__MenuIcon {
+  display: none;
+}
+
+.Menu {
+  display: flex;
+}
+
+.Menu__Item {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 100px;
+}
+
+.Menu__Item > a {
+  color: #2A2A3A;
+  padding: 0 16px;
+  position: relative;
+}
+
+.Menu__Item > a:hover:after {
+  background-color: #2a2a2a;
+  bottom: -10px;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 50px;
+}
+
+@media screen and (max-width: 762px) {
+
+  .Header {
+    height: 50px;
+    padding: 0 20px;
+  }
+
+  .Header__Icon {
+    font-size: 1.8rem;
+    line-height: 50px;
+  }
+
+  .Header__MenuIcon {
+    display: block;
+  }
+
+  .Header__MenuIcon:before {
+    cursor: pointer;
+    color: #2A2A3A;
+    content: "MENU";
+    display: block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 50px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .Header__MenuIcon--open:before {
+    color: #fff;
+    content: "CLOSE";
+  }
+
+  .Menu {
+    background-color: #2A2A3A;
+    display: none;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    width: 100vw;
+  }
+
+  .Menu--open {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .Menu__Item {
+    border-bottom: 1px solid #D4D4D4;
+    height: 100px;
+    text-align: center;
+    vertical-align: center;
+  }
+
+  .Menu__Item:first-child {
+    border-top: 1px solid #D4D4D4;
+  }
+
+  .Menu__Item > a {
+    color: #fff;
+    display: block;
+  }
+}

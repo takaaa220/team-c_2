@@ -1,1 +1,186 @@
-<h1>有名人一覧</h1>
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}有名人一覧{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/list.css">
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>有名人一覧</h1>
+    </div>
+    <div class="cp_ipselect cp_sl01">
+      <select required>
+        <option value="" hidden>カテゴリー選択</option>
+        <option value="1">アイドル</option>
+        <option value="2">俳優</option>
+        <option value="3">女優</option>
+        <option value="4">モデル</option>
+        <option value="5">舞台俳優</option>
+      </select>
+    </div>
+    <h2>アイドル一覧</h2>
+
+    <div class="flex-container">
+
+    <div class="box">
+      <img src="/assets/images/sample.png" alt="">
+      <div class="status">
+        <div class="status_category">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            アイドル
+          </p>
+        </div>
+        <div class="status_Speed">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            １日以内
+          </p>
+        </div>
+        <div class="status_rate">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            ６０％の返信
+          </p>
+        </div>
+      </div>
+      <h4>広瀬すず</h4>
+    </div>
+
+
+    <div class="box">
+      <img src="assets/images/sample.png" alt="">
+      <div class="status">
+        <div class="status_category">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            アイドル
+          </p>
+        </div>
+        <div class="status_Speed">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            １日以内
+          </p>
+        </div>
+        <div class="status_rate">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            ６０％の返信
+          </p>
+        </div>
+      </div>
+      <h4>広瀬すず</h4>
+    </div>
+    <div class="box">
+      <img src="assets/images/sample.png" alt="">
+      <div class="status">
+        <div class="status_category">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            アイドル
+          </p>
+        </div>
+        <div class="status_Speed">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            １日以内
+          </p>
+        </div>
+        <div class="status_rate">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            ６０％の返信
+          </p>
+        </div>
+      </div>
+      <h4>広瀬すず</h4>
+    </div>
+
+    <div class="box">
+      <img src="/assets/images/sample.png" alt="">
+      <div class="status">
+        <div class="status_category">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            アイドル
+          </p>
+        </div>
+        <div class="status_Speed">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            １日以内
+          </p>
+        </div>
+        <div class="status_rate">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            ６０％の返信
+          </p>
+        </div>
+      </div>
+      <h4>広瀬すず</h4>
+    </div>
+
+
+    <div class="box">
+      <img src="assets/images/sample.png" alt="">
+      <div class="status">
+        <div class="status_category">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            アイドル
+          </p>
+        </div>
+        <div class="status_Speed">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            １日以内
+          </p>
+        </div>
+        <div class="status_rate">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            ６０％の返信
+          </p>
+        </div>
+      </div>
+      <h4>広瀬すず</h4>
+    </div>
+    <div class="box">
+      <img src="assets/images/sample.png" alt="">
+      <div class="status">
+        <div class="status_category">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            アイドル
+          </p>
+        </div>
+        <div class="status_Speed">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            １日以内
+          </p>
+        </div>
+        <div class="status_rate">
+          <p>
+            <span><img src="/assets/images/sample.png" alt=""></span>
+            ６０％の返信
+          </p>
+        </div>
+      </div>
+      <h4>広瀬すず</h4>
+    </div>
+
+  </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

@@ -14,50 +14,46 @@
     <div class="page-header text-center">
         <h1>マイページ</h1>
     </div>
-    <div class="cp_ipselect cp_sl01">
-      <select required>
-        <option value="" hidden>カテゴリー選択</option>
-        <option value="1">アイドル</option>
-        <option value="2">俳優</option>
-        <option value="3">女優</option>
-        <option value="4">モデル</option>
-        <option value="5">舞台俳優</option>
-      </select>
-    </div>
-    <h2>アイドル一覧</h2>
 
-  <div class="flex-container">
-    {% for row in result1 %}
-      <div class="box">
-        <img src="{{ row.image_url }}" alt="">
-        <div class="status">
-          <div class="status_category">
-            <p>
-              <span><img src="/assets/images/sample.png" alt=""></span>
-              {% for r2 in result2 %}
-                {% if r2.talent_id == row.id %}
-                {{r2.category}}
-                {% endif %}
-              {% endfor %}
-            </p>
-          </div>
-          <div class="status_Speed">
-            <p>
-              <span><img src="/assets/images/sample.png" alt=""></span>
-              １日以内
-            </p>
-          </div>
-          <div class="status_rate">
-            <p>
-              <span><img src="/assets/images/sample.png" alt=""></span>
-              ６０％の返信
-            </p>
-          </div>
-        </div>
-        <h4>{{ row.name }}</h4>
+    <div class="profile">
+      <div class="myname">
+        <span><img src="/assets/images/sample.png" alt=""></span>
+        <p>
+          タカ
+        </p>
       </div>
-      {% endfor %}
+      <div class="supported">
+        <span><img src="/assets/images/sample.png" alt=""></span>
+        <p>
+          支援額
+        </p>
+        <p>
+          10,000円
+        </p>
       </div>
+      <div class="times">
+        <span><img src="/assets/images/sample.png" alt=""></span>
+        <p>
+          不幸回数
+        </p>
+        <p>
+          100回
+        </p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <input id="all" type="radio" name="tab_item" checked>
+      <label class="tab_item" for="all">総合</label>
+      <input id="programming" type="radio" name="tab_item">
+      <label class="tab_item" for="programming">プログラミング</label>
+      <div class="tab_content" id="all_content">
+          総合の内容がここに入ります
+      </div>
+      <div class="tab_content" id="programming_content">
+        プログラミングの内容がここに入ります
+      </div>
+    </div>
 
 
 {% endblock %}

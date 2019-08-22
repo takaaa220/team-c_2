@@ -1,0 +1,86 @@
+.profile{
+  width: 75%;
+  margin: 0 auto;
+}
+
+.profile > div{
+  margin: 30px auto 20px auto;
+}
+.profile div img{
+  width: 30px;
+  height: 30px;
+  display: block;
+  float: left;
+  border-radius: 24px;
+}
+
+.profile .myname{
+  width: 100%;
+  font-size: 325x;
+}
+.profile .supported{
+  width: 49%;
+  color: orange;
+  display: inline-block;
+}
+.profile .times{
+  width: 49%;
+  color: blue;
+  display: inline-block;
+}
+
+.profile div p:nth-child(3){
+  font-size: 25px;
+}
+
+
+/* タブ切り替え */
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #fff;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.tab_item {
+  width: calc(100%/2);
+  height: 50px;
+  /* border-bottom: 3px solid #5ab4bd; */
+  border: 1px solid gray;
+  background-color: white;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: gray;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab_item:nth {
+  border-left: 0px;
+}
+.tab_item:hover {
+  opacity: 0.75;
+}
+input[name="tab_item"] {
+  display: none;
+}
+
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+  display: block;
+}
+.tabs input:checked + .tab_item {
+  background-color: #5ab4bd;
+  color: #fff;
+}

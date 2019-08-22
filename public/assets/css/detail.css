@@ -51,7 +51,17 @@
   margin: 0 auto;
 }
 
+.icons{
+  width: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+
+}
+
 .icons img{
+  display: block;
   width: 30px;
   height:30px;
 }

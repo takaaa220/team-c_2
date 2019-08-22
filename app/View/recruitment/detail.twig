@@ -1,1 +1,197 @@
-<h1>クラウドファンディング詳細</h1>
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+
+{% block header_scripts_add %}
+<link href="/assets/css/reset.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/recruitment_detail.css">
+{% endblock %}
+
+{% block page_content %}
+<div class="Recruitment">
+  <div class="Recruitment__Top">
+    <img class="Recruitment__Img" src="/assets/images/sample.png" alt="sample">
+    <ul class="RecruitmentStatus">
+      <li class="RecruitmentStatus__Item">
+        <p class="RecruitmentStatus__Title RecruitmentStatus__Title--money">
+          集まっている金額
+        </p>
+        <p class="RecruitmentStatus__Content">
+          {{ "100000" }}円
+        </p>
+      </li>
+
+      <li class="RecruitmentStatus__Item">
+        <p class="RecruitmentStatus__Title RecruitmentStatus__Title--clock">
+          募集終了まで
+        </p>
+        <p class="RecruitmentStatus__Content">
+          {{ "5日" }}
+        </p>
+      </li>
+
+      <li class="RecruitmentStatus__Item">
+        <p class="RecruitmentStatus__Title RecruitmentStatus__Title--person">
+          依頼された有名人
+        </p>
+        <p class="RecruitmentStatus__Content">
+          {{ "広瀬すず" }}
+        </p>
+      </li>
+
+      <li class="RecruitmentStatus__Item">
+        <p class="RecruitmentStatus__Title RecruitmentStatus__Title--person">
+          依頼主
+        </p>
+        <p class="RecruitmentStatus__Content">
+          {{ "taka" }}
+        </p>
+      </li>
+    </ul>
+
+    <ul class="RecruitmentSns RecruitmentSns--top">
+      <li class="RecruitmentSns__Item">
+        <a href="#">
+          <img class="RecruitmentSns__Image" src="/assets/images/twitter_black.svg">
+        </a>
+      </li>
+      <li class="RecruitmentSns__Item">
+        <a href="#">
+          <img class="RecruitmentSns__Image" src="/assets/images/facebook_black.svg">
+        </a>
+      </li>
+    </ul>
+  </div>
+  <p class="Recruitment__Category">{{ "失恋系" }}</p>
+  <p class="Recruitment__Description">
+    {{
+      "この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
+文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
+この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
+文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。"
+    }}
+  </p>
+  <ul class="RecruitmentSns RecruitmentSns--bottom">
+    <li class="RecruitmentSns__Item">
+      <a href="#">
+        <img class="RecruitmentSns__Image" src="/assets/images/twitter_black.svg">
+      </a>
+    </li>
+    <li class="RecruitmentSns__Item">
+      <a href="#">
+        <img class="RecruitmentSns__Image" src="/assets/images/facebook_black.svg">
+      </a>
+    </li>
+  </ul>
+
+  <div class="Tab">
+    <a href="#" class="Tab__Item Tab__Item--active--blue">支援する</a>
+    <a href="#" class="Tab__Item">支援者一覧</a>
+  </div>
+
+  {% if false %}
+    <div class="RecruitmentLogin">
+      <h3 class="RecruitmentLogin__Title">
+        この不幸な人を支援するには
+        <br>
+        ログインが必要です
+      </h3>
+      <form class="RecruitmentForm">
+        <div class="form-group RecruitmentForm__Item">
+          <input type="email" class="RecruitmentForm__Input form-control" placeholder="メールアドレス">
+        </div>
+        <div class="form-group RecruitmentForm__Item">
+          <input type="password" class="RecruitmentForm__Input form-control" placeholder="パスワード">
+        </div>
+        <input type="submit" value="ログイン" class="btn btn--blue" />
+      </form>
+      <div>
+        <a href="/login/">新規登録はこちら</a>
+      </div>
+    </div>
+  {% elseif true %}
+    <h3 class="Recruitment__Apply">この不幸な人を支援する</h3>
+    <form class="RecruitmentForm">
+      <div class="form-group RecruitmentForm__Item">
+        <label for="price" class="RecruitmentForm__Label">支援額</label>
+        <input type="number" id="price" class="RecruitmentForm__Input form-control" placeholder="1000">
+      </div>
+      <div class="form-group RecruitmentForm__Item">
+        <label for="name" class="RecruitmentForm__Label">応援メッセージ</label>
+        <textarea class="RecruitmentForm__Textarea form-control" placeholder="応援メッセージ"></textarea>
+      </div>
+      <input type="submit" value="決済ページへ" class="btn btn--blue" />
+    </form>
+  {% else %}
+    <ul class="Recruitment__Support">
+      <li class="RecruitmentCard">
+        <div class="RecruitmentCard__Top">
+          <div class="RecruitmentCard__Left">
+            <div class="RecruitmentCard__User">
+              <img src={{"/assets/images/person_black.svg" }} class="RecruitmentCard__UserIcon">
+              <p class="RecruitmentCard__UserName">
+                {{ "takaaa220" }}
+              </p>
+            </div>
+            <p class="RecruitmentCard__Date">{{ "2019年9月12日" }}</p>
+          </div>
+          <div class="RecruitmentCard__Right">
+            <p class="RecruitmentCard__Money">{{ "100,000" }}円</p>
+          </div>
+        </div>
+        <p class="RecruitmentCard__Content">
+          {{ "頑張れ! 諦めるな！ 本当に諦めるな！ これからいいことあるぞ！ 頑張れ! 諦めるな！ 本当に諦めるな！ これからいいことあるぞ！" }}
+        </p>
+      </li>
+      <li class="RecruitmentCard">
+        <div class="RecruitmentCard__Top">
+          <div class="RecruitmentCard__Left">
+            <div class="RecruitmentCard__User">
+              <img src={{"/assets/images/person_black.svg" }} class="RecruitmentCard__UserIcon">
+              <p class="RecruitmentCard__UserName">
+                {{ "takaaa220" }}
+              </p>
+            </div>
+            <p class="RecruitmentCard__Date">{{ "2019年9月12日" }}</p>
+          </div>
+          <div class="RecruitmentCard__Right">
+            <p class="RecruitmentCard__Money">{{ "100,000" }}円</p>
+          </div>
+        </div>
+        <p class="RecruitmentCard__Content">
+          {{ "頑張れ! 諦めるな！ 本当に諦めるな！ これからいいことあるぞ！ 頑張れ! 諦めるな！ 本当に諦めるな！ これからいいことあるぞ！" }}
+        </p>
+      </li>
+      <li class="RecruitmentCard">
+        <div class="RecruitmentCard__Top">
+          <div class="RecruitmentCard__Left">
+            <div class="RecruitmentCard__User">
+              <img src={{"/assets/images/person_black.svg" }} class="RecruitmentCard__UserIcon">
+              <p class="RecruitmentCard__UserName">
+                {{ "takaaa220" }}
+              </p>
+            </div>
+            <p class="RecruitmentCard__Date">{{ "2019年9月12日" }}</p>
+          </div>
+          <div class="RecruitmentCard__Right">
+            <p class="RecruitmentCard__Money">{{ "100,000" }}円</p>
+          </div>
+        </div>
+        <p class="RecruitmentCard__Content">
+          {{ "頑張れ! 諦めるな！ 本当に諦めるな！ これからいいことあるぞ！ 頑張れ! 諦めるな！ 本当に諦めるな！ これからいいことあるぞ！" }}
+        </p>
+      </li>
+    </ul>
+    <ul class="pagination Recruitment__Pagination">
+      <li class="page-item"><a class="page-link" href="#">前へ</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">4</a></li>
+      <li class="page-item"><a class="page-link" href="#">5</a></li>
+      <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+  </ul>
+  {% endif %}
+</div>
+
+{% endblock %}

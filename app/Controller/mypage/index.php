@@ -18,7 +18,7 @@ $app->get('/mypage', function (Request $request, Response $response, $args) {
 
     $myp = new Mypage($this->db);
 
-    if(!isset($_SERVER['QUERY_STRING'])){ // $_GET['page_id'] はURLに渡された現在のページ数
+    if(empty($_SERVER['QUERY_STRING'])){ // $_GET['page_id'] はURLに渡された現在のページ数
         $now = 1; // 設定されてない場合は1ページ目にする
     }else{
         $now = $_SERVER['QUERY_STRING'];

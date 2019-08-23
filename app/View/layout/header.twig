@@ -1,0 +1,34 @@
+<header class="Header" id="js-header">
+  <h1 class="Header__Icon">
+    <a href="/">サービス名</a>
+  </h1>
+  <nav class="Header__Nav">
+    {% if session.user_info  == "" %}
+      <a href="/login/" class="Header__Login">ログイン</a>
+    {% else %}
+      <div class="Header__MenuIcon" id="js-toggle"></div>
+      <ul class="Menu" id="js-menu">
+        <li class="Menu__Item">
+          <a href="/mypage">マイページ</a>
+        </li>
+        <li class="Menu__Item">
+          <a href="/talent/list/">有名人を探す</a>
+        </li>
+        <li class="Menu__Item">
+          <a href="/recruitment">不幸な人を探す</a>
+        </li>
+        <li class="Menu__Item">
+          <a href="/logout/">ログアウト</a>
+        </li>
+      </ul>
+    {% endif %}
+  </nav>
+</header>
+
+<script>
+  document.getElementById("js-toggle").onclick = function() {
+    this.classList.toggle("Header__MenuIcon--open");
+    const menu = document.getElementById("js-menu");
+    menu.classList.toggle("Menu--open")
+  };
+</script>

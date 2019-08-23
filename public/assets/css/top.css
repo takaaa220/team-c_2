@@ -1,0 +1,133 @@
+.Header {
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity .3s;
+  width: 100%;
+}
+
+.Header--active {
+  opacity: 1;
+}
+
+.Top {
+  margin: 0 auto;
+}
+
+.TopFirstView {
+  align-items: start;
+  background-image: url(/assets/images/top.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-end;
+  padding: 28px 20px;
+}
+
+/* .TopFirstView:before {
+  background:rgba(0,0,0,0.6);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+} */
+
+.TopFirstView__Title {
+  color: #fff;
+  font-size: 2.8rem;
+  line-height: 36px;
+  margin-bottom: 16px;
+}
+
+.TopFirstView__Description {
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 28px;
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: block;
+  color: #fff;
+  font-size: 1.6rem;
+  width: 200px;
+}
+
+.btn--blue {
+  background-color: #265EB8;
+}
+
+.btn--red {
+  background-color: #F77754;
+}
+
+.TopUse {
+  background-color: #fff;
+  padding: 32px 16px;
+}
+
+.TopUse__Title {
+  color: #F77754;
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.TopUse__Title:not(:first-child) {
+  margin-top: 32px;
+}
+
+.TopUse__Block {
+  margin-bottom: 26px;
+}
+
+.TopUse__Block:last-child {
+  margin-bottom: 0;
+}
+
+.TopUse__SubTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.TopUse__Content {
+  font-size: 1.4rem;
+  line-height: 24px;
+}
+
+.TopUse .btn {
+  margin: 16px auto 0;
+}
+
+.TopInterview {
+  padding: 32px 16px;
+}
+
+.TopInterview__Title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.TopInterview__ComingSoon {
+  align-items: center;
+  background-color: rgba(0, 0, 0, .6);
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  width: 100%;
+}
+
+.TopInterview__ComingSoon > p {
+  color: #fff;
+  font-size: 2.0rem;
+}

@@ -11,6 +11,11 @@ $app->get('/recruitment', function (Request $request, Response $response, $args)
 
     $data = [];
 
+    $query = $_GET;
+    if (array_key_exists("type", $query)) {
+        $data["type"] = $query["type"];
+    }
+
     return $this->view->render($response, 'recruitment/list.twig', $data);
 
 });

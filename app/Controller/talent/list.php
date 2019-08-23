@@ -21,12 +21,12 @@ $app->get('/talent', function (Request $request, Response $response, $args) {
 
     $query = $_GET;
 
-    $now = array_key_exists("page", $query) != null ? $query["page"] : 1;
+    $now = array_key_exists("page", $query) ? $query["page"] : 1;
 
     if (array_key_exists("category", $query)) {
       $data["result1"] = $talent1->getTalentListByCategory($query["category"], $now);
       $data["name"] = $query["category"];
-    } elseif (array_key_exists("q", $query) != null) {
+    } elseif (array_key_exists("q", $query)) {
       $data["result1"] = $talent1->searchTalentByName($query["q"], $now);
       $data["name"] = $query["q"];
     } else {

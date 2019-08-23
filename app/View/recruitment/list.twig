@@ -8,19 +8,21 @@
 {% block page_content %}
   <div class="RecruitList">
     <div class="Tab">
-      <a href="/talent/list/" class="Tab__Item Tab__Item">有名人を探す</a>
+      <a href="/talent" class="Tab__Item Tab__Item">有名人を探す</a>
       <a href="#" class="Tab__Item Tab__Item--active--blue">不幸な人を探す</a>
     </div>
 
-    <select class="Select form-control">
-      <option value="0">失恋した</option>
-      <option value="1">痛い</option>
-      <option value="2">大切な人を亡くした</option>
-      <option value="3">紛失した</option>
-      <option value="4">病気になった</option>
+    <select class="Select form-control" onchange="changeCategory(this)">
+      <option value="" hidden>カテゴリー選択</option>
+      <option value="失恋系">失恋系</option>
+      <option value="不慮の事故系">不慮の事故系</option>
+      <option value="痛い系">痛い系</option>
+      <option value="ケンカ・障害系">ケンカ・障害系</option>
+      <option value="紛失系">紛失系</option>
+      <option value="重い系">重い系</option>
     </select>
 
-    <h1 class="RecruitList__Title">{{ "失恋した" }} 不幸な人一覧</h1>
+    <h1 class="RecruitList__Title">{{ type }} 不幸な人一覧</h1>
 
     <ul class="RecruitListCards">
       <li class="RecruitListCard">
@@ -116,4 +118,15 @@
       <li class="page-item"><a class="page-link" href="#">次へ</a></li>
     </ul>
   </div>
+
+  <script>
+    const changeCategory = (obj) => {
+      const index = obj.selectedIndex;
+      const category = obj.options[index].value;
+
+      console.log(category);
+      window.location.href = `/recruitment?type=${category}`;
+    }
+
+  </script>
 {% endblock %}

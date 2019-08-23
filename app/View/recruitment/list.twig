@@ -26,9 +26,10 @@
 
     <ul class="RecruitListCards">
 
-      {% for row in result1 %}
+      {% for row in result %}
+
       <li class="RecruitListCard">
-        <a href="{{ "/recruitment/1" }}" class="RecruitListCard__Link">
+        <a href= "/recruitment/{{row.id}}" class="RecruitListCard__Link">
           <p class="RecruitListCard__Content">
             {{row.content}}
             ...

@@ -20,11 +20,11 @@ $app->get('/recruitment', function (Request $request, Response $response, $args)
 
     if (array_key_exists("type", $query)) {
         $data["type"] = $query["type"];
-        $data["result1"] = $offer1->getOfferPostByType($query["type"], $now);
+        $data["result"] = $offer1->getOfferPostByType($query["type"], $now);
     } else {
-        $data["result1"] = $offer1->getOfferPostList($now);
+        $data["result"] = $offer1->getOfferPostList($now);
     }
-
+    
     $data["offerNum"] = $offer4->getAllOfferPostList();
     $data["max"] = ceil( count($data["offerNum"]) / 10 );
     $data["usr"] = $usr->getAllUsrList();

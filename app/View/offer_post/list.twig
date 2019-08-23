@@ -2,7 +2,7 @@
 {% extends "layout/layout.twig" %}
 
 {#HTMLのタイトルを定義します。#}
-{% block title %}有名人一覧{% endblock %}
+{% block title %}不幸一覧{% endblock %}
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
@@ -12,64 +12,45 @@
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
     <div class="page-header text-center">
-        <h1>有名人一覧</h1>
+        <h1>不幸一覧</h1>
     </div>
     <div class="cp_ipselect cp_sl01">
       <select required>
         <option value="" hidden>カテゴリー選択</option>
-        <option value="1">アイドル</option>
-        <option value="2">俳優</option>
-        <option value="3">女優</option>
-        <option value="4">モデル</option>
-        <option value="5">舞台俳優</option>
+        <option value="1">事故</option>
+        <option value="2">恋愛</option>
+        <option value="3">友人トラブル</option>
+        <option value="4">その他</option>
       </select>
     </div>
-    <h2>アイドル一覧</h2>
+    <h2>不幸一覧</h2>
 
   <div class="flex-container">
-    {% for row in result1 %}
+    {% for row in result %}
+
       <div class="box">
         <img src="{{ row.image_url }}" alt="">
+          <h4>{{ row.title }}</h4>
         <div class="status">
           <div class="status_category">
             <p>
               <span><img src="/assets/images/sample.png" alt=""></span>
-              {% for r2 in result2 %}
-                {% if r2.talent_id == row.id %}
-                {{r2.category}}
-                {% endif %}
-              {% endfor %}
             </p>
+            {{ row.type }}
           </div>
           <div class="status_Speed">
             <p>
               <span><img src="/assets/images/sample.png" alt=""></span>
-              １日以内
-            </p>
-
-          </div>
-          <div class="status_rate">
-            <p>
-              <span><img src="/assets/images/sample.png" alt=""></span>
-              ６０％の返信
+              {{ row.created_at }}
             </p>
           </div>
         </div>
-        <h4>{{ row.name }}</h4>
+        <p>
+        {{ row.content }}
+      </p>
       </div>
       {% endfor %}
       </div>
-
-      <ul class="pageNav01">
-      {% for i in 1..max %}
-      <!-- <p>forは動いてる</p> -->
-          {% if i == now %}
-            <li><span>{{i}}</span></li>
-          {% else %}
-            <li><a href="?{{i}}"> {{i}} </a></li>
-          {% endif %}
-      {% endfor %}
-      </ul>
 
 {% endblock %}
 

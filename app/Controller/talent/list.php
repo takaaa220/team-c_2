@@ -11,11 +11,21 @@ $app->get('/talent/list', function (Request $request, Response $response, $args)
 
     $talent1 = new Talent($this->db);
     $talent2 = new Talent($this->db);
+    $talent3 = new Talent($this->db);
 
-    $data["result1"] = $talent1->getTalentMasterList();
-    $data["result2"] = $talent2->getTalentCategoryList();
-// dd($talent->searchTalentMaster($x));
-    //$data["result"] = $talent->searchTalentMaster($x);
+    if(!isset($_SERVER['QUERY_STRING'])){ // $_GET['page_id'] はURLに渡された現在のページ数
+        $now = 1; // 設定されてない場合は1ページ目にする
+    }else{
+        $now = $_SERVER['QUERY_STRING'];
+    }
+    //$now = $_SERVER['QUERY_STRING'];
+    //dd($now);
+
+    $data["result1"] = $talent1->getTalentMasterList($now);
+    $data["result2"] = $talent2->getTalentCategoryList($now);
+    $data["member"] = $talent3->getAllTalentMasterList();
+    $data["max"] = ceil( count($data["member"]) / 20 );
+    $data["now"] = $now;
 
     return $this->view->render($response, 'talent/list.twig', $data);
 });

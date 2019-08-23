@@ -6,12 +6,13 @@
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
+    <link href="/assets/css/auth.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
     <div class="page-header text-center">
-        <h1>会員登録</h1>
+        <h1>新規登録</h1>
     </div>
     <div class="container">
         <div class="box">
@@ -32,6 +33,16 @@
                                 <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> ニックネーム</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ name }}" required title="Please enter your nickname" placeholder="ニックネーム">
                             </div>
+
+                            <div class="form-group cp_ipselect cp_sl01">
+                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> 性別</label>
+                                <select required>
+                                  <option value="" hidden></option>
+                                  <option value="1">男</option>
+                                  <option value="2">女</option>
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> 職業</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ name }}" required title="Please enter your business" placeholder="職業">

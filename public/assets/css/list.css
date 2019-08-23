@@ -106,3 +106,21 @@ h2{
 	padding: 8px 38px 8px 8px;
 	color: #666666;
 }
+
+.Search {
+	align-items: center;
+	display: flex;
+	padding: 16px;
+}
+
+.Search .form-control {
+	margin-right: 12px;
+}
+
+.btn {
+	display: block;
+	border: 1px solid #265EB8;
+  background-color: #fff;
+  font-size: 1.6rem;
+  width: 120px;
+}

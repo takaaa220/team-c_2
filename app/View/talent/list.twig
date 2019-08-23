@@ -11,20 +11,20 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="page-header text-center">
-        <h1>有名人一覧</h1>
-    </div>
     <div class="cp_ipselect cp_sl01">
-      <select required>
+      <select onchange="changeCategory(this);">
         <option value="" hidden>カテゴリー選択</option>
-        <option value="1">アイドル</option>
-        <option value="2">俳優</option>
-        <option value="3">女優</option>
-        <option value="4">モデル</option>
-        <option value="5">舞台俳優</option>
+        {% for c in categories %}}
+          <option value={{ c.category }}>{{ c.category }}</option>
+        {% endfor %}
       </select>
     </div>
-    <h2>有名人一覧</h2>
+      <form class="Search" method="GET" action="/talent">
+        <input type="text" name="q" placeholder="名前で検索" class="form-control">
+        <input type="submit" value="🔍 検索" class="btn btn--blue">
+      </form>
+    </div>
+    <h2>{{name}}{{ name == null ? "有名人一覧" : " の検索結果一覧"}}</h2>
 
   <div class="flex-container">
     {% for row in result1 %}
@@ -74,6 +74,18 @@
       {% endfor %}
       <li><a href="?{{max}}"> 最後 </a></li>
       </ul>
+    </div>
+
+  <script>
+    const changeCategory = (obj) => {
+      const index = obj.selectedIndex;
+      const category = obj.options[index].value;
+
+      console.log(category);
+      window.location.href = `/talent?category=${category}`;
+    }
+
+  </script>
 
 {% endblock %}
 

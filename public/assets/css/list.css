@@ -63,7 +63,7 @@ h2{
 .cp_ipselect {
 	overflow: hidden;
 	width: 90%;
-	margin: 2em auto;
+	margin: 20px auto 0;
 	text-align: center;
 }
 .cp_ipselect select {
@@ -119,7 +119,7 @@ h2{
 
 .btn {
 	display: block;
-	border: 1px solid #265EB8;
+	border: 1px solid #dcdcdc;
   background-color: #fff;
   font-size: 1.6rem;
   width: 120px;

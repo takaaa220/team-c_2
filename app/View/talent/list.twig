@@ -28,7 +28,7 @@
 
   <div class="flex-container">
     {% for row in result1 %}
-    <a href="talent/detail?id={{row.id}}">
+
       <div class="box">
         <img src="{{ row.image_url }}" alt="">
         <div class="status">
@@ -56,23 +56,23 @@
             </p>
           </div>
         </div>
-        <h4>{{ row.name }}</h4>
+        <a href="talent/detail/{{row.id}}"><h4>{{ row.name }}</h4></a>
       </div>
-      </a>
+
       {% endfor %}
       </div>
 
       <ul class="pageNav01">
-        <li><a href="?1"> 最初 </a></li>
+        <li><a href="/1"> 最初 </a></li>
       {% for i in 1..max %}
       <!-- <p>forは動いてる</p> -->
           {% if i == now %}
             <li><span>{{i}}</span></li>
           {% elseif i>now-3 and i<now+3 %}
-            <li><a href="?{{i}}"> {{i}} </a></li>
+            <li><a href="/{{i}}"> {{i}} </a></li>
           {% endif %}
       {% endfor %}
-      <li><a href="?{{max}}"> 最後 </a></li>
+      <li><a href="/{{max}}"> 最後 </a></li>
       </ul>
 
 {% endblock %}

@@ -63,23 +63,4 @@ class Mypage extends Dao
 
     }
 
-    public function paging($data){
-      $num = count($data); // トータルデータ件数
-      $max = 1 + count($data)/20;
-
-      if(!isset($_GET['page_id'])){ // $_GET['page_id'] はURLに渡された現在のページ数
-          $now = 1; // 設定されてない場合は1ページ目にする
-      }else{
-          $now = $_GET['page_id'];
-      }
-
-      for($i = 1; $i <= $max; $i++){ // 最大ページ数分リンクを作成
-          if ($i == $now) { // 現在表示中のページ数の場合はリンクを貼らない
-              echo $now. '　';
-          } else {
-              echo '<a href=\'/test.php?page_id='. $i. '\')>'. $i. '</a>'. '　';
-          }
-      }
-    }
-
 }

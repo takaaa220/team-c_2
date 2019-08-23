@@ -7,6 +7,12 @@ use Model\Dao\User;
 // ログイン画面コントローラ
 $app->get('/login/', function (Request $request, Response $response) {
 
+    // ログインしてたらマイページへ
+    $user = $this->session->get('user_info');
+    if ($user != "") {
+        return $response->withRedirect('/mypage');
+    }
+
     //GETされた内容を取得します。
     $data = $request->getQueryParams();
 
@@ -17,6 +23,12 @@ $app->get('/login/', function (Request $request, Response $response) {
 
 // ログインロジックコントローラ
 $app->post('/login/', function (Request $request, Response $response) {
+
+    // ログインしてたらマイページへ
+    $user = $this->session->get('user_info');
+    if ($user != "") {
+        return $response->withRedirect('/mypage');
+    }
 
     //POSTされた内容を取得します
     $data = $request->getParsedBody();
@@ -36,8 +48,9 @@ $app->post('/login/', function (Request $request, Response $response) {
         //セッションにユーザー情報を登録
         $this->session->set('user_info', $result);
 
+        $forwarding_path = $this->session->get("forwarding_path");
         //TOPへリダイレクト
-        return $response->withRedirect('/');
+        return $response->withRedirect($forwarding_path != "" ? $forwarding_path : "/");
 
     } else {
         //入力項目がマッチしない場合エラーを出す

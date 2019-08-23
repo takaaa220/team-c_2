@@ -8,6 +8,14 @@ use Model\Dao\User;
 // 会員登録ページコントローラ
 $app->get('/register/', function (Request $request, Response $response) {
 
+    // ログインしてたらマイページへ
+    $user = $this->session->get('user_info');
+    if ($user != "") {
+        return $response->withRedirect('/mypage');
+    }
+
+    $this->session->delete('forwarding_path');
+
     //GETされた内容を取得します。
     $data = $request->getQueryParams();
 

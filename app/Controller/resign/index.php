@@ -8,6 +8,12 @@ use Model\Dao\User;
 // 会員登録ページコントローラ
 $app->get('/resign/', function (Request $request, Response $response) {
 
+   // ログインしてなかったらトップへ
+    $user = $this->session->get('user_info');
+    if ($user == "") {
+        return $response->withRedirect('/');
+    }
+
     //GETされた内容を取得します。
     $data = $request->getQueryParams();
 
@@ -18,6 +24,12 @@ $app->get('/resign/', function (Request $request, Response $response) {
 
 // 会員登録処理コントローラ
 $app->post('/resign/', function (Request $request, Response $response) {
+
+    // ログインしてなかったらトップへ
+    $user = $this->session->get('user_info');
+    if ($user == "") {
+        return $response->withRedirect('/');
+    }
 
     //POSTされた内容を取得します
     $data = $request->getParsedBody();

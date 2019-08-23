@@ -84,45 +84,12 @@
   </ul>
 
   <div class="Tab">
-    <a href="#" class="Tab__Item Tab__Item--active--blue">支援する</a>
-    <a href="#" class="Tab__Item">支援者一覧</a>
+    <a href="/recruitment/{{ '1' }}" class="Tab__Item {{ type == 'cheering' ? 'Tab__Item--active--blue' : '' }}">支援する</a>
+    <a href="/recruitment/{{ '1' }}/cheerer" class="Tab__Item {{ type == 'cheerer' ? 'Tab__Item--active--blue' : '' }}">支援者一覧</a>
   </div>
 
-  {% if false %}
-    <div class="RecruitmentLogin">
-      <h3 class="RecruitmentLogin__Title">
-        この不幸な人を支援するには
-        <br>
-        ログインが必要です
-      </h3>
-      <form class="RecruitmentForm">
-        <div class="form-group RecruitmentForm__Item">
-          <input type="email" class="RecruitmentForm__Input form-control" placeholder="メールアドレス">
-        </div>
-        <div class="form-group RecruitmentForm__Item">
-          <input type="password" class="RecruitmentForm__Input form-control" placeholder="パスワード">
-        </div>
-        <input type="submit" value="ログイン" class="btn btn--blue" />
-      </form>
-      <div>
-        <a href="/login/">新規登録はこちら</a>
-      </div>
-    </div>
-  {% elseif true %}
-    <h3 class="Recruitment__Apply">この不幸な人を支援する</h3>
-    <form class="RecruitmentForm">
-      <div class="form-group RecruitmentForm__Item">
-        <label for="price" class="RecruitmentForm__Label">支援額</label>
-        <input type="number" id="price" class="RecruitmentForm__Input form-control" placeholder="1000">
-      </div>
-      <div class="form-group RecruitmentForm__Item">
-        <label for="name" class="RecruitmentForm__Label">応援メッセージ</label>
-        <textarea class="RecruitmentForm__Textarea form-control" placeholder="応援メッセージ"></textarea>
-      </div>
-      <input type="submit" value="決済ページへ" class="btn btn--blue" />
-    </form>
-  {% else %}
-    <ul class="Recruitment__Support">
+  {% if type == "cheerer" %}
+        <ul class="Recruitment__Support">
       <li class="RecruitmentCard">
         <div class="RecruitmentCard__Top">
           <div class="RecruitmentCard__Left">
@@ -189,7 +156,40 @@
       <li class="page-item"><a class="page-link" href="#">4</a></li>
       <li class="page-item"><a class="page-link" href="#">5</a></li>
       <li class="page-item"><a class="page-link" href="#">次へ</a></li>
-  </ul>
+    </ul>
+  {% elseif session.user_info == "" %}
+    <div class="RecruitmentLogin">
+      <h3 class="RecruitmentLogin__Title">
+        この不幸な人を支援するには
+        <br>
+        ログインが必要です
+      </h3>
+      <form class="RecruitmentForm" method="POST" action="/login/">
+        <div class="form-group RecruitmentForm__Item">
+          <input type="email" class="RecruitmentForm__Input form-control" placeholder="メールアドレス" name="email">
+        </div>
+        <div class="form-group RecruitmentForm__Item">
+          <input type="password" class="RecruitmentForm__Input form-control" placeholder="パスワード" name="password">
+        </div>
+        <input type="submit" value="ログイン" class="btn btn--blue" />
+      </form>
+      <div>
+        <a href="/login/">新規登録はこちら</a>
+      </div>
+    </div>
+  {% else %}
+    <h3 class="Recruitment__Apply">この不幸な人を支援する</h3>
+    <form class="RecruitmentForm">
+      <div class="form-group RecruitmentForm__Item">
+        <label for="price" class="RecruitmentForm__Label">支援額</label>
+        <input type="number" id="price" class="RecruitmentForm__Input form-control" placeholder="1000">
+      </div>
+      <div class="form-group RecruitmentForm__Item">
+        <label for="name" class="RecruitmentForm__Label">応援メッセージ</label>
+        <textarea class="RecruitmentForm__Textarea form-control" placeholder="応援メッセージ"></textarea>
+      </div>
+      <input type="submit" value="決済ページへ" class="btn btn--blue" />
+    </form>
   {% endif %}
 </div>
 

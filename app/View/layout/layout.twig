@@ -10,14 +10,18 @@
     <link rel="stylesheet" href="/assets/css/litera.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/css/reset.css" rel="stylesheet">
+    <link href="/assets/css/template.css" rel="stylesheet">
     {% block header_scripts_add %}{% endblock %}
 </head>
 <body role="document">
 {#メニューをセットします#}
-{% include 'menu/menu.twig' %}
+{% include 'layout/header.twig' %}
 
 {# メインコンテンツを配置します#}
 {% block page_content %}{% endblock %}
+
+{% include 'layout/footer.twig' %}
 
 <!-- BootStrap3 -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

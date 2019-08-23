@@ -7,6 +7,12 @@ use Model\Dao\User;
 // ログイン画面コントローラ
 $app->get('/login/', function (Request $request, Response $response) {
 
+    // ログインしてたらマイページへ
+    $user = $this->session->get('user_info');
+    if ($user != "") {
+        return $response->withRedirect('/mypage');
+    }
+
     //GETされた内容を取得します。
     $data = $request->getQueryParams();
 
@@ -17,6 +23,12 @@ $app->get('/login/', function (Request $request, Response $response) {
 
 // ログインロジックコントローラ
 $app->post('/login/', function (Request $request, Response $response) {
+
+    // ログインしてたらマイページへ
+    $user = $this->session->get('user_info');
+    if ($user != "") {
+        return $response->withRedirect('/mypage');
+    }
 
     //POSTされた内容を取得します
     $data = $request->getParsedBody();

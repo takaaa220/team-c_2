@@ -55,56 +55,78 @@
         </div>
 
 
-        <!-- ログインしていた場合 -->
-        <div id="message">
-          <h2>メッセージを受取る</h2>
-
-          <form method="post">
-
-            <div class="cp_iptxt">
-              <p class="cp_label">
-                氏名
-              </p>
-              <input type="text" placeholder="氏名">
-            </div>
-            <div class="cp_iptxt">
-              <p class="cp_label">
-                ニックネーム
-              </p>
-              <input type="text" placeholder="ニックネーム">
-            </div>
-            <div class="cp_ipselect cp_sl01">
-              <p class="cp_label">
-                カテゴリー選択
-              </p>
-              <select required>
-                <option value="" hidden>カテゴリー選択</option>
-                <option value="1">失恋系</option>
-                <option value="2">不慮の事故系</option>
-                <option value="3">痛い系</option>
-                <option value="4">ケンカ・障害系</option>
-                <option value="5">紛失系</option>
-                <option value="6">重い系</option>
-              </select>
-            </div>
-            <div class="cp_iptxt cp_textarea">
-              <p class="cp_label">
-                トラブル内容
-              </p>
-              <textarea name="text" rows="10" placeholder="トラブル内容"></textarea>
-              <p>
-                ※有名人の方はここを見てメッセージを送るので、できるだけ詳しく書いてください。
-              </p>
-            </div>
+        {% if session.user_info == "" %}
+          <div class="Login TalentShowLogin">
+            <h1 class="Login__Title">
+                メッセージを受け取るには
+                <br>
+                ログインが必要です
+            </h1>
+            <form class="LoginForm" method="POST" action="/login/">
+                <div class="form-group LoginForm__Item">
+                <input type="email" class="LoginForm__Input form-control" placeholder="メールアドレス" name="email" value={{ email }}>
+                </div>
+                <div class="form-group LoginForm__Item">
+                <input type="password" class="LoginForm__Input form-control" placeholder="パスワード" name="password" value="" required>
+                </div>
+                <input type="submit" value="ログイン" class="btn btn--blue" />
+            </form>
             <div>
-            <p>
-              <input type="submit" value="お支払いページに進む"/>
-            </p>
-
+                <a href="/login/">新規登録はこちら</a>
             </div>
-
-          </form>
         </div>
+        {% else %}
+          <!-- ログインしていた場合 -->
+          <div id="message">
+            <h2>メッセージを受取る</h2>
+
+            <form method="post" action="/talent/{{ "1" }}/apply">
+
+              {# <div class="cp_iptxt">
+                <p class="cp_label">
+                  氏名
+                </p>
+                <input type="text" placeholder="氏名">
+              </div>
+              <div class="cp_iptxt">
+                <p class="cp_label">
+                  ニックネーム
+                </p>
+                <input type="text" placeholder="ニックネーム">
+              </div> #}
+              <div class="cp_ipselect cp_sl01">
+                <p class="cp_label">
+                  カテゴリー選択
+                </p>
+                <select required name="type">
+                  <option value="" hidden>カテゴリー選択</option>
+                  <option value="失恋系">失恋系</option>
+                  <option value="不慮の事故系">不慮の事故系</option>
+                  <option value="痛い系">痛い系</option>
+                  <option value="ケンカ・障害系">ケンカ・障害系</option>
+                  <option value="紛失系">紛失系</option>
+                  <option value="重い系">重い系</option>
+                </select>
+              </div>
+              <div class="cp_iptxt cp_textarea">
+                <p class="cp_label">
+                  トラブル内容
+                </p>
+                <textarea class="form-control" name="content" rows="10" placeholder="トラブル内容"></textarea>
+                <p>
+                  ※有名人の方はここを見てメッセージを送るので、できるだけ詳しく書いてください。
+                </p>
+              </div>
+              <div>
+              <p>
+                <input type="submit" value="お支払いページに進む"/>
+              </p>
+
+              </div>
+
+            </form>
+          </div>
+        {% endif %}
 
         <!-- 新規登録の場合 -->
 

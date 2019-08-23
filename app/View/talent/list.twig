@@ -24,10 +24,11 @@
         <option value="5">舞台俳優</option>
       </select>
     </div>
-    <h2>アイドル一覧</h2>
+    <h2>有名人一覧</h2>
 
   <div class="flex-container">
     {% for row in result1 %}
+
       <div class="box">
         <img src="{{ row.image_url }}" alt="">
         <div class="status">
@@ -46,6 +47,7 @@
               <span><img src="/assets/images/sample.png" alt=""></span>
               １日以内
             </p>
+
           </div>
           <div class="status_rate">
             <p>
@@ -54,11 +56,24 @@
             </p>
           </div>
         </div>
-        <h4>{{ row.name }}</h4>
+        <a href="talent/detail?id={{row.id}}"><h4>{{ row.name }}</h4></a>
       </div>
+
       {% endfor %}
       </div>
 
+      <ul class="pageNav01">
+        <li><a href="?1"> 最初 </a></li>
+      {% for i in 1..max %}
+      <!-- <p>forは動いてる</p> -->
+          {% if i == now %}
+            <li><span>{{i}}</span></li>
+          {% elseif i>now-3 and i<now+3 %}
+            <li><a href="?{{i}}"> {{i}} </a></li>
+          {% endif %}
+      {% endfor %}
+      <li><a href="?{{max}}"> 最後 </a></li>
+      </ul>
 
 {% endblock %}
 

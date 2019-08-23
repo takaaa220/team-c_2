@@ -3,19 +3,30 @@ use Model\Dao\Talent;
 use Slim\Http\Request;
 use Slim\Http\Response;
 // 有名人一覧 (検索もはいるところ)
-$app->get('/talent/list', function (Request $request, Response $response, $args) {
+$app->get('/talent', function (Request $request, Response $response, $args) {
 
-  // dd(1234);
+  $path = $request->getUri()->getPath();
+  $this->session->set('forwarding_path', $path);
+
       $data = [];
-      //$x = "浅田真央";
 
     $talent1 = new Talent($this->db);
     $talent2 = new Talent($this->db);
+    $talent3 = new Talent($this->db);
+    $talent4 = new Talent($this->db);
 
-    $data["result1"] = $talent1->getTalentMasterList();
-    $data["result2"] = $talent2->getTalentCategoryList();
-// dd($talent->searchTalentMaster($x));
-    //$data["result"] = $talent->searchTalentMaster($x);
+    if(empty($_SERVER['QUERY_STRING'])){
+      $now = 1; // 設定されてない場合は1ページ目にする
+    }else{
+        $now = $_SERVER['QUERY_STRING'];
+    }
+
+    $data["result1"] = $talent1->getTalentMasterList($now);
+    $data["result2"] = $talent2->getTalentCategoryList($now);
+    $data["result2"] = $talent3->getTalentCategoryList($now);
+    $data["member"] = $talent4->getAllTalentMasterList();
+    $data["max"] = ceil( count($data["member"]) / 20 );
+    $data["now"] = $now;
 
     return $this->view->render($response, 'talent/list.twig', $data);
 });

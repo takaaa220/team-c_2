@@ -1,1 +1,177 @@
-<h1>マイページ</h1>
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}マイページ{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+<link rel="stylesheet" href="/assets/css/mypage.css">
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="page-header text-center">
+        <h1>マイページ</h1>
+    </div>
+
+    <div class="profile">
+      <div class="myname">
+        <span><img src="/assets/images/sample.png" alt=""></span>
+        <p>
+          タカ
+        </p>
+      </div>
+      <div class="supported">
+        <span><img src="/assets/images/sample.png" alt=""></span>
+        <p>
+          支援額
+        </p>
+        <p>
+          10,000円
+        </p>
+      </div>
+      <div class="times">
+        <span><img src="/assets/images/sample.png" alt=""></span>
+        <p>
+          不幸回数
+        </p>
+        <p>
+          100回
+        </p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <input id="all" type="radio" name="tab_item" checked>
+      <label class="tab_item" for="all">有名人とのやりとり</label>
+      <input id="programming" type="radio" name="tab_item">
+      <label class="tab_item" for="programming">支援履歴</label>
+      <div class="tab_content" id="all_content">
+
+        <!-- タブ１ -->
+        <div class="flex-container" id="#container?id={{now}}">
+
+            <div class="box">
+              <img src="/assets/images/sample.png" alt="">
+              <div class="status">
+                <div class="status_category">
+                  <p>
+                    <span><img src="/assets/images/sample.png" alt=""></span>
+                    アイドル
+                  </p>
+                </div>
+              </div>
+              <h4>広瀬すず</h4>
+              <p>
+                届いたメッセージ
+              </p>
+              <video src=""></video>
+            </div>
+
+            <div class="box">
+              <img src="/assets/images/sample.png" alt="">
+              <div class="status">
+                <div class="status_category">
+                  <p>
+                    <span><img src="/assets/images/sample.png" alt=""></span>
+                    アイドル
+                  </p>
+                </div>
+              </div>
+              <h4>広瀬すず</h4>
+              <p>
+                届いたメッセージ
+              </p>
+              <video src=""></video>
+            </div>
+
+            <div class="box">
+            <img src="/assets/images/sample.png" alt="">
+            <div class="status">
+              <div class="status_category">
+                <p>
+                  <span><img src="/assets/images/sample.png" alt=""></span>
+                  アイドル
+                </p>
+              </div>
+            </div>
+            <h4>広瀬すず</h4>
+            <p>
+              届いたメッセージ
+            </p>
+            <video src=""></video>
+          </div>
+
+          <div class="box">
+            <img src="/assets/images/sample.png" alt="">
+            <div class="status">
+              <div class="status_category">
+                <p>
+                  <span><img src="/assets/images/sample.png" alt=""></span>
+                  アイドル
+                </p>
+              </div>
+            </div>
+            <h4>広瀬すず</h4>
+            <p>
+              届いたメッセージ
+            </p>
+            <video src=""></video>
+          </div>
+        </div>
+
+        <ul class="pageNav01">
+          <li><a href="?1"> 最初 </a></li>
+        {% for i in 1..max %}
+        <!-- <p>forは動いてる</p> -->
+            {% if i == now %}
+              <li><span>{{i}}</span></li>
+            {% elseif i>now-3 and i<now+3 %}
+              <li><a href="?{{i}}"> {{i}} </a></li>
+            {% endif %}
+        {% endfor %}
+        <li><a href="?{{max}}"> 最後 </a></li>
+        </ul>
+
+
+
+      <!-- タブ２ -->
+      <div class="tab_content" id="programming_content">
+
+        <div class="flex-container2" id="container2">
+            <div class="comment-area">
+              支援してくれた人のコメントとか
+            </div>
+            <div class="comment-area">
+              支援してくれた人のコメントとか
+            </div>
+            <div class="comment-area">
+              支援してくれた人のコメントとか
+            </div>
+            <div class="comment-area">
+              支援してくれた人のコメントとか
+            </div>
+        </div>
+
+        <!-- ページャー2 -->
+
+        <ul class="pageNav02">
+          <li><a href="#container2">&laquo; 前</a></li>
+          <li><a href="#container2">1</a></li>
+          <li><span>2</span></li>
+          <li><a href="#container2">3</a></li>
+          <li><a href="#container2">4</a></li>
+          <li><a href="#container2">5</a></li>
+          <li><a href="#container2">6</a></li>
+          <li><a href="#container2">次 &raquo;</a></li>
+        </ul>
+
+
+      </div>
+
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}

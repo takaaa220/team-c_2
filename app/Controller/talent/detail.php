@@ -5,7 +5,9 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 // 有名人詳細
-$app->get('/talent/detail/{talent_id}', function (Request $request, Response $response, $args) {
+$app->get('/talent/{talent_id}/', function (Request $request, Response $response, $args) {
+    $path = $request->getUri()->getPath();
+    $this->session->set('forwarding_path', $path);
 
     $data = [];
     //URLパラメータのtalent_idを取得します。

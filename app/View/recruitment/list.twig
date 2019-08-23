@@ -1,1 +1,119 @@
-<h1>クラウドファンディング一覧</h1>
+{% extends "layout/layout.twig" %}
+
+
+{% block header_scripts_add %}
+  <link rel="stylesheet" href="/assets/css/recruitment_list.css">
+{% endblock %}
+
+{% block page_content %}
+  <div class="RecruitList">
+    <div class="Tab">
+      <a href="/talent/list/" class="Tab__Item Tab__Item">有名人を探す</a>
+      <a href="#" class="Tab__Item Tab__Item--active--blue">不幸な人を探す</a>
+    </div>
+
+    <select class="Select form-control">
+      <option value="0">失恋した</option>
+      <option value="1">痛い</option>
+      <option value="2">大切な人を亡くした</option>
+      <option value="3">紛失した</option>
+      <option value="4">病気になった</option>
+    </select>
+
+    <h1 class="RecruitList__Title">{{ "失恋した" }} 不幸な人一覧</h1>
+
+    <ul class="RecruitListCards">
+      <li class="RecruitListCard">
+        <a href="{{ "/recruitment/1" }}" class="RecruitListCard__Link">
+          <p class="RecruitListCard__Content">
+            {{
+              "私は昨日彼女に振られました．
+              突然のことでした．いまだに何故彼女に振られたのかわかりません．
+              本当に彼女のことが好きでした．
+              彼女との一番の思い出はやっぱり，ディズニーランドですね．
+              彼女はとてもディズニーランドが好きな女性でした．"
+            }}
+            ...
+          </p>
+          <ul class="RecruitListCardStatus">
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--flag">{{ "失恋した" }}</li>
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--clock">残り: {{ "5日" }}</li>
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--money">{{ "10000" }} 円</li>
+          </ul>
+          <div class="RecruitListCardUser">
+            <p class="RecruitListCardUser__Name">{{ "広瀬すず" }}</p>
+            <img src="/assets/images/arrow_black.svg" class="RecruitListCardUser__Arrow">
+            <div class="RecruitListCardUser__Block">
+              <img src={{ "/assets/images/person_black.svg" }} class="RecruitListCardUser__Icon">
+              <p class="RecruitListCardUser__Name">{{ "taka" }}</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="RecruitListCard">
+        <a href="{{ "/recruitment/1" }}" class="RecruitListCard__Link">
+          <p class="RecruitListCard__Content">
+            {{
+              "私は昨日彼女に振られました．
+              突然のことでした．いまだに何故彼女に振られたのかわかりません．
+              本当に彼女のことが好きでした．
+              彼女との一番の思い出はやっぱり，ディズニーランドですね．
+              彼女はとてもディズニーランドが好きな女性でした．"
+            }}
+            ...
+          </p>
+          <ul class="RecruitListCardStatus">
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--flag">{{ "失恋した" }}</li>
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--clock">残り: {{ "5日" }}</li>
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--money">{{ "10000" }} 円</li>
+          </ul>
+          <div class="RecruitListCardUser">
+            <p class="RecruitListCardUser__Name">{{ "広瀬すず" }}</p>
+            <img src="/assets/images/arrow_black.svg" class="RecruitListCardUser__Arrow">
+            <div class="RecruitListCardUser__Block">
+              <img src={{ "/assets/images/person_black.svg" }} class="RecruitListCardUser__Icon">
+              <p class="RecruitListCardUser__Name">{{ "taka" }}</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li class="RecruitListCard">
+        <a href="{{ "/recruitment/1" }}" class="RecruitListCard__Link">
+          <p class="RecruitListCard__Content">
+            {{
+              "私は昨日彼女に振られました．
+              突然のことでした．いまだに何故彼女に振られたのかわかりません．
+              本当に彼女のことが好きでした．
+              彼女との一番の思い出はやっぱり，ディズニーランドですね．
+              彼女はとてもディズニーランドが好きな女性でした．"
+            }}
+            ...
+          </p>
+          <ul class="RecruitListCardStatus">
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--flag">{{ "失恋した" }}</li>
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--clock">残り: {{ "5日" }}</li>
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--money">{{ "10000" }} 円</li>
+          </ul>
+          <div class="RecruitListCardUser">
+            <p class="RecruitListCardUser__Name">{{ "広瀬すず" }}</p>
+            <img src="/assets/images/arrow_black.svg" class="RecruitListCardUser__Arrow">
+            <div class="RecruitListCardUser__Block">
+              <img src={{ "/assets/images/person_black.svg" }} class="RecruitListCardUser__Icon">
+              <p class="RecruitListCardUser__Name">{{ "taka" }}</p>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="pagination RecruitList__Pagination">
+      <li class="page-item"><a class="page-link" href="#">前へ</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">4</a></li>
+      <li class="page-item"><a class="page-link" href="#">5</a></li>
+      <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+    </ul>
+  </div>
+{% endblock %}

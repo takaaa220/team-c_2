@@ -33,7 +33,7 @@
   width: 100%;
 }
 
-.LoginForm .LoginForm__Item {
+.LoginForm .LoginForm__Item{
   display: flex;
   margin-bottom: 24px;
   width: 100%;
@@ -59,4 +59,43 @@
   display: block;
   margin: 24px auto 12px;
   width: 200px;
+}
+
+/* セレクタメニュー */
+.cp_ipselect {
+	width: 100%;
+}
+.cp_ipselect select {
+	width: 100%;
+	background: transparent;
+	background-image: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect.cp_sl01 {
+	position: relative;
+}
+.cp_ipselect.cp_sl01::before {
+	position: absolute;
+	top: 3.2em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl01 select {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+  padding: 0.5rem 1.1rem;
+	color: rgba(0, 0, 0, 1.0);
+}
+
+.page-header{
+  color: #F77754;
+  margin: 20px 0;
 }

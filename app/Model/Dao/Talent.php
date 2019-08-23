@@ -82,4 +82,36 @@ class Talent extends Dao
         return $statement->fetchAll();
 
     }
+
+    public function getTalentListByCategory($category, $page) {
+      $num = ($page-1)*20;
+
+      $sql = "select * from talent_master where id in ((select talent_id from talent_category where category = :category)) limit :num,20 ";
+
+      $statement = $this->db->prepare($sql);
+
+      $statement->bindParam(":num", $num, PDO::PARAM_INT);
+      $statement->bindParam(":category", $category, PDO::PARAM_STR);
+
+      $statement->execute();
+
+      return $statement->fetchAll();
+    }
+
+    public function searchTalentByName($name, $page) {
+
+      $num = ($page-1)*20;
+
+      $sql = "select * from talent_master where name like :name limit :num,20 ";
+
+      $statement = $this->db->prepare($sql);
+
+      $like = "%$name%";
+      $statement->bindParam(":name", $like, PDO::PARAM_STR);
+      $statement->bindParam(":num", $num, PDO::PARAM_INT);
+
+      $statement->execute();
+
+      return $statement->fetchAll();
+    }
 }

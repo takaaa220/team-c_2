@@ -63,7 +63,7 @@ h2{
 .cp_ipselect {
 	overflow: hidden;
 	width: 90%;
-	margin: 2em auto;
+	margin: 20px auto 0;
 	text-align: center;
 }
 .cp_ipselect select {
@@ -105,4 +105,22 @@ h2{
 .cp_ipselect.cp_sl01 select {
 	padding: 8px 38px 8px 8px;
 	color: #666666;
+}
+
+.Search {
+	align-items: center;
+	display: flex;
+	padding: 16px;
+}
+
+.Search .form-control {
+	margin-right: 12px;
+}
+
+.btn {
+	display: block;
+	border: 1px solid #dcdcdc;
+  background-color: #fff;
+  font-size: 1.6rem;
+  width: 120px;
 }

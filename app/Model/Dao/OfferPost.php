@@ -38,6 +38,24 @@ class OfferPost extends Dao
 
   }
 
+  public function getOfferPostByType($type, $page) {
+    $num = ($page-1)*10;
+    //全件取得するクエリを作成
+    $sql = "select * from offer_post where type = :type limit :num,10 ";
+
+    // SQLをプリペア
+    $statement = $this->db->prepare($sql);
+
+    $statement->bindParam(":num", $num, PDO::PARAM_INT);
+    $statement->bindParam(":type", $type, PDO::PARAM_STR);
+
+    //SQLを実行
+    $statement->execute();
+
+    //結果レコードを全件取得し、返送
+    return $statement->fetchAll();
+  }
+
   public function getAllOfferPostList()
   {
       //全件取得するクエリを作成

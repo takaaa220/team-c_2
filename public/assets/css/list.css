@@ -196,6 +196,9 @@ h2 {
   margin-bottom: 32px;
 }
 
+.List__Pagination {
+  justify-content: center;
+}
 @media screen and (max-width: 500px) {
   .box,
   .box-link {

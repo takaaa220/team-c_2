@@ -9,7 +9,13 @@
 {% block page_content %}
 <div class="Recruitment">
   <div class="Recruitment__Top">
-    <img class="Recruitment__Img" src="/assets/images/sample.png" alt="sample">
+    <img class="Recruitment__Img" src="
+    {% for a1 in talent %}
+      {% if  a1.id == offer_talent.talent_id %}
+        {{ a1.image_url }}
+      {% endif %}
+    {% endfor %}
+      " alt="">
     <ul class="RecruitmentStatus">
       <li class="RecruitmentStatus__Item">
         <p class="RecruitmentStatus__Title RecruitmentStatus__Title--money">
@@ -70,7 +76,7 @@
       </li>
     </ul>
   </div>
-  <p class="Recruitment__Category">{{ "失恋系" }}</p>
+  <p class="Recruitment__Category">{{ result.type }}</p>
   <p class="Recruitment__Description">
     {{ result.content }}
   </p>

@@ -16,7 +16,7 @@ $app->get('/talent', function (Request $request, Response $response, $args) {
     $talent2 = new Talent($this->db);
     $talent3 = new Talent($this->db);
 
-    if(!isset($_SERVER['QUERY_STRING'])){ // $_GET['page_id'] はURLに渡された現在のページ数
+    if(!isset($_SERVER['QUERY_STRING'])){ 
         $now = 1; // 設定されてない場合は1ページ目にする
     }else{
         $now = $_SERVER['QUERY_STRING'];

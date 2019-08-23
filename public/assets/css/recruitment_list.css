@@ -6,7 +6,7 @@
 }
 
 .Tab {
-  border: 1px solid #E8E7E9;
+  border: 1px solid #e8e7e9;
   box-shadow: 0px 2px 4px rgba(51, 51, 51, 0.2);
   display: none;
   height: 50px;
@@ -16,7 +16,7 @@
 }
 
 .Tab__Item {
-  color: #D4D4D4;
+  color: #d4d4d4;
   cursor: pointer;
   display: block;
   font-size: 1.4rem;
@@ -25,11 +25,11 @@
 }
 
 .Tab__Item:first-child {
-  border-right: 1px solid #E8E7E9;
+  border-right: 1px solid #e8e7e9;
 }
 
 .Tab__Item--active--blue {
-  color: #265EB8;
+  color: #265eb8;
   cursor: default;
   pointer-events: none;
 }
@@ -45,7 +45,7 @@
 }
 
 .RecruitList__Title {
-  color: #265EB8;
+  color: #265eb8;
   font-size: 2.4rem;
   font-weight: normal;
   margin-bottom: 24px;
@@ -66,11 +66,16 @@
 
 .RecruitListCard {
   background-color: #fff;
-  border: 1px solid #D4D4D4;
+  box-shadow: 0px 2px 4px rgba(51, 51, 51, 0.2);
+  transition: box-shadow 0.3s;
   border-radius: 4px;
   margin-bottom: 24px;
   max-width: 350px;
   width: 100%;
+}
+
+.RecruitListCard:hover {
+  box-shadow: none;
 }
 
 .RecruitListCard__Link {
@@ -94,7 +99,7 @@
 
 .RecruitListCardStatus__Item {
   align-items: center;
-  color: #265EB8;
+  color: #265eb8;
   display: flex;
   font-size: 1.2rem;
   margin: 0 8px 12px 0;

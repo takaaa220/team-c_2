@@ -11,6 +11,12 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
+  <div class="Container">
+    <div class="Tab">
+      <a href="#" class="Tab__Item  Tab__Item--active--red">有名人を探す</a>
+      <a href="/recruitment" class="Tab__Item">不幸な人を探す</a>
+    </div>
+
     <div class="cp_ipselect cp_sl01">
       <select onchange="changeCategory(this);">
         <option value="" hidden>カテゴリー選択</option>
@@ -19,45 +25,35 @@
         {% endfor %}
       </select>
     </div>
-      <form class="Search" method="GET" action="/talent">
-        <input type="text" name="q" placeholder="名前で検索" class="form-control">
-        <input type="submit" value="🔍 検索" class="btn btn--blue">
-      </form>
-    </div>
+    <form class="Search" method="GET" action="/talent">
+      <input type="text" name="q" placeholder="名前で検索" class="form-control">
+      <input type="submit" value="🔍 検索" class="btn btn--blue">
+    </form>
     <h2>{{name}}{{ name == null ? "有名人一覧" : " の検索結果一覧"}}</h2>
 
   <div class="flex-container">
     {% for row in result1 %}
-    <a href="talent/detail/{{row.id}}">
-      <div class="box">
-        <img src="{{ row.image_url }}" alt="">
-        <div class="status">
-          <div class="status_category">
-            <p>
-              <span><img src="/assets/images/sample.png" alt=""></span>
-              {% for r2 in result2 %}
-                {% if r2.talent_id == row.id %}
-                {{r2.category}}
-                {% endif %}
-              {% endfor %}
-            </p>
-          </div>
-          <div class="status_Speed">
-            <p>
-              <span><img src="/assets/images/sample.png" alt=""></span>
-              １日以内
-            </p>
+    <a href="talent/detail/{{row.id}}" class="box-link">
+    <div class="box">
+      <img src="{{ row.image_url }}" alt="">
+      <div class="status">
+        <p class="status_category status_category--flag">
+            {% for r2 in result2 %}
+              {% if r2.talent_id == row.id %}
+              {{r2.category}}
+              {% endif %}
+            {% endfor %}
+        </p>
+        <p class="status_category status_category--clock">
+          １日以内
+        </p>
 
-          </div>
-          <div class="status_rate">
-            <p>
-              <span><img src="/assets/images/sample.png" alt=""></span>
-              ６０％の返信
-            </p>
-          </div>
-        </div>
-       <h4>{{ row.name }}</h4>
+        <p class="status_category status_category--rate">
+          ６０％の返信
+        </p>
       </div>
+       <h4>{{ row.name }}</h4>
+    </div>
     </a>
       {% endfor %}
       </div>
@@ -73,8 +69,19 @@
       {% endfor %}
       <li><a href="/{{max}}"> 最後 </a></li>
       </ul>
-    </div>
 
+      <ul class="pagination RecruitList__Pagination">
+        <li class="page-item"><a class="page-link" href="recruitment?{{1}}"> 最初 </a></li>
+      {% for i in 1..max %}
+          {% if i == now %}
+            <li class="page-item"><a class="page-link">{{i}}</a></li>
+          {% elseif i>now-3 and i<now+3 %}
+            <li class="page-item"><a class="page-link" href="recruitment?{{i}}">{{i}}</a></li>
+          {% endif %}
+      {% endfor %}
+      <li class="page-item"><a class="page-link" href="recruitment?{{max}}"> 最後 </a></li>
+     </ul>
+    </div>
   <script>
     const changeCategory = (obj) => {
       const index = obj.selectedIndex;

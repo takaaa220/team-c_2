@@ -148,24 +148,6 @@ input[name="tab_item"] {
 }
 
 
-/* タブ２ */
-.flex-container2{
-  width: calc(100%);
-  height: 100%;
-  display: block;
-}
-
-.comment-area{
-  width: calc(100% - 10px);
-  min-width: 280px;
-  min-height: 280px;
-  display: block;
-  border: 0.5px solid #bbbbbb;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  margin: 0 auto 20px auto;
-}
-
 
 /* ページャー */
 ul.pageNav01,
@@ -218,4 +200,45 @@ ul.pageNav02 li a:hover {
 	color: white;
 	border-color: blue;
   background-color: blue;
+}
+
+
+
+
+/* タブ２ */
+.flex-container2{
+  width: calc(100%);
+  height: 100%;
+  display: block;
+}
+
+.comment-area{
+  width: calc(100% - 10px - 40px);
+  min-width: 280px;
+  min-height: calc(280px - 40px);
+  display: block;
+  border: 0.5px solid #bbbbbb;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
+  padding:20px;
+}
+
+.comment-top{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comment-top img{
+  width: 30px;
+  height: 30px;
+}
+.comment-top > div{
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+}
+.comment-date{
+  color: #bbbbbb;
 }

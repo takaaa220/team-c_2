@@ -34,7 +34,12 @@
           依頼された有名人
         </p>
         <p class="RecruitmentStatus__Content">
-          {{ "広瀬すず" }}
+
+              {% for a2 in talent %}
+                {% if  a2.id == offer_talent.talent_id %}
+                  {{ a2.name }}
+                {% endif %}
+              {% endfor %}
         </p>
       </li>
 
@@ -43,7 +48,11 @@
           依頼主
         </p>
         <p class="RecruitmentStatus__Content">
-          {{ "taka" }}
+          {% for r2 in usr %}
+            {% if r2.id == result.usr_id %}
+              {{ r2.name }}
+            {% endif %}
+          {% endfor %}
         </p>
       </li>
     </ul>
@@ -63,12 +72,7 @@
   </div>
   <p class="Recruitment__Category">{{ "失恋系" }}</p>
   <p class="Recruitment__Description">
-    {{
-      "この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
-文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
-この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。
-文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。"
-    }}
+    {{ result.content }}
   </p>
   <ul class="RecruitmentSns RecruitmentSns--bottom">
     <li class="RecruitmentSns__Item">

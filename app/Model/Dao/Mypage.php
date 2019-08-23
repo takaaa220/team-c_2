@@ -67,10 +67,10 @@ class Mypage extends Dao
       $num = count($data); // トータルデータ件数
       $max = 1 + count($data)/20;
 
-      if(empty($_GET['page_id'])){ // $_GET['page_id'] はURLに渡された現在のページ数
+      if(empty($_SERVER['QUERY_STRING'])){ // $_GET['page_id'] はURLに渡された現在のページ数
           $now = 1; // 設定されてない場合は1ページ目にする
       }else{
-          $now = $_GET['page_id'];
+          $now = $_SERVER['QUERY_STRING'];
       }
 
       for($i = 1; $i <= $max; $i++){ // 最大ページ数分リンクを作成

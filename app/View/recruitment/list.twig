@@ -23,20 +23,16 @@
     <h1 class="RecruitList__Title">{{ "失恋した" }} 不幸な人一覧</h1>
 
     <ul class="RecruitListCards">
+
+      {% for row in result1 %}
       <li class="RecruitListCard">
         <a href="{{ "/recruitment/1" }}" class="RecruitListCard__Link">
           <p class="RecruitListCard__Content">
-            {{
-              "私は昨日彼女に振られました．
-              突然のことでした．いまだに何故彼女に振られたのかわかりません．
-              本当に彼女のことが好きでした．
-              彼女との一番の思い出はやっぱり，ディズニーランドですね．
-              彼女はとてもディズニーランドが好きな女性でした．"
-            }}
+            {{row.content}}
             ...
           </p>
           <ul class="RecruitListCardStatus">
-            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--flag">{{ "失恋した" }}</li>
+            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--flag">{{ row.type }}</li>
             <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--clock">残り: {{ "5日" }}</li>
             <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--money">{{ "10000" }} 円</li>
           </ul>
@@ -45,75 +41,31 @@
             <img src="/assets/images/arrow_black.svg" class="RecruitListCardUser__Arrow">
             <div class="RecruitListCardUser__Block">
               <img src={{ "/assets/images/person_black.svg" }} class="RecruitListCardUser__Icon">
-              <p class="RecruitListCardUser__Name">{{ "taka" }}</p>
+              {% for r2 in usr %}
+                {% if r2.id == row.usr_id %}
+                  <p class="RecruitListCardUser__Name">{{ r2.name }}</p>
+                {% endif %}
+              {% endfor %}
             </div>
           </div>
         </a>
       </li>
-      <li class="RecruitListCard">
-        <a href="{{ "/recruitment/1" }}" class="RecruitListCard__Link">
-          <p class="RecruitListCard__Content">
-            {{
-              "私は昨日彼女に振られました．
-              突然のことでした．いまだに何故彼女に振られたのかわかりません．
-              本当に彼女のことが好きでした．
-              彼女との一番の思い出はやっぱり，ディズニーランドですね．
-              彼女はとてもディズニーランドが好きな女性でした．"
-            }}
-            ...
-          </p>
-          <ul class="RecruitListCardStatus">
-            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--flag">{{ "失恋した" }}</li>
-            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--clock">残り: {{ "5日" }}</li>
-            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--money">{{ "10000" }} 円</li>
-          </ul>
-          <div class="RecruitListCardUser">
-            <p class="RecruitListCardUser__Name">{{ "広瀬すず" }}</p>
-            <img src="/assets/images/arrow_black.svg" class="RecruitListCardUser__Arrow">
-            <div class="RecruitListCardUser__Block">
-              <img src={{ "/assets/images/person_black.svg" }} class="RecruitListCardUser__Icon">
-              <p class="RecruitListCardUser__Name">{{ "taka" }}</p>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li class="RecruitListCard">
-        <a href="{{ "/recruitment/1" }}" class="RecruitListCard__Link">
-          <p class="RecruitListCard__Content">
-            {{
-              "私は昨日彼女に振られました．
-              突然のことでした．いまだに何故彼女に振られたのかわかりません．
-              本当に彼女のことが好きでした．
-              彼女との一番の思い出はやっぱり，ディズニーランドですね．
-              彼女はとてもディズニーランドが好きな女性でした．"
-            }}
-            ...
-          </p>
-          <ul class="RecruitListCardStatus">
-            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--flag">{{ "失恋した" }}</li>
-            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--clock">残り: {{ "5日" }}</li>
-            <li class="RecruitListCardStatus__Item RecruitListCardStatus__Item--money">{{ "10000" }} 円</li>
-          </ul>
-          <div class="RecruitListCardUser">
-            <p class="RecruitListCardUser__Name">{{ "広瀬すず" }}</p>
-            <img src="/assets/images/arrow_black.svg" class="RecruitListCardUser__Arrow">
-            <div class="RecruitListCardUser__Block">
-              <img src={{ "/assets/images/person_black.svg" }} class="RecruitListCardUser__Icon">
-              <p class="RecruitListCardUser__Name">{{ "taka" }}</p>
-            </div>
-          </div>
-        </a>
-      </li>
+      {% endfor %}
+
     </ul>
 
+    {#ページング#}
     <ul class="pagination RecruitList__Pagination">
-      <li class="page-item"><a class="page-link" href="#">前へ</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">4</a></li>
-      <li class="page-item"><a class="page-link" href="#">5</a></li>
-      <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+        <li class="page-item"><a class="page-link" href="recruitment?{{1}}"> 最初 </a></li>
+      {% for i in 1..max %}
+          {% if i == now %}
+            <li class="page-item"><a class="page-link">{{i}}</a></li>
+          {% elseif i>now-3 and i<now+3 %}
+            <li class="page-item"><a class="page-link" href="recruitment?{{i}}">{{i}}</a></li>
+          {% endif %}
+      {% endfor %}
+      <li class="page-item"><a class="page-link" href="recruitment?{{max}}"> 最後 </a></li>
     </ul>
+
   </div>
 {% endblock %}

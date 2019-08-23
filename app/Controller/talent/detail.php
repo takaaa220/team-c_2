@@ -1,6 +1,8 @@
 <?php
 
 use Model\Dao\OfferPost;
+use Model\Dao\OfferTalent;
+
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -26,11 +28,18 @@ $app->post('/talent/{talent_id}/apply', function (Request $request, Response $re
     }
 
     $offer_post = new OfferPost($this->db);
+    $offer_talent = new OfferTalent($this->db);
 
     $param["usr_id"] = $user["id"];
-    $result = $offer_post->create($param);
+    $result_offer_post_id = $offer_post->create($param);
 
-    if ($result == null) {
+    if ($result_offer_post_id == null) {
+        return $response->withRedirect("/talent/${talent_id}/");
+    }
+
+    $result_offer_talent_id = $offer_talent->create($result_offer_post_id, $talent_id);
+
+    if ($result_offer_talent_id == null) {
         return $response->withRedirect("/talent/${talent_id}/");
     }
 

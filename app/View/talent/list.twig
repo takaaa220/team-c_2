@@ -28,6 +28,7 @@
 
   <div class="flex-container">
     {% for row in result1 %}
+    <a href="talent/detail?id={{row.id}}">
       <div class="box">
         <img src="{{ row.image_url }}" alt="">
         <div class="status">
@@ -57,6 +58,7 @@
         </div>
         <h4>{{ row.name }}</h4>
       </div>
+      </a>
       {% endfor %}
       </div>
 

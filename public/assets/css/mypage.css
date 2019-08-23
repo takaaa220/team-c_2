@@ -1,3 +1,8 @@
+.page-header h1{
+  color: orange;
+  margin: 30px 0;
+}
+
 .profile{
   width: 75%;
   margin: 0 auto;
@@ -11,7 +16,13 @@
   height: 30px;
   display: block;
   float: left;
+}
+.myname img{
   border-radius: 24px;
+}
+.myname p{
+  margin-left: 40px;
+  font-size: 20px;
 }
 
 .profile .myname{
@@ -32,6 +43,7 @@
 .profile div p:nth-child(3){
   font-size: 25px;
 }
+
 
 
 /* タブ切り替え */
@@ -112,6 +124,7 @@ input[name="tab_item"] {
 .box video{
   width: calc(100% - 10px);
   margin: 0 5px;
+  background-color: #bbbbbb;
 }
 .box h4{
   margin-left: 20px;

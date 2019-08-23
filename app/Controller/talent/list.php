@@ -13,6 +13,7 @@ $app->get('/talent', function (Request $request, Response $response, $args) {
     $talent1 = new Talent($this->db);
     $talent2 = new Talent($this->db);
     $talent3 = new Talent($this->db);
+    $talent4 = new Talent($this->db);
 
     if(empty($_SERVER['QUERY_STRING'])){
       $now = 1; // 設定されてない場合は1ページ目にする
@@ -22,7 +23,8 @@ $app->get('/talent', function (Request $request, Response $response, $args) {
 
     $data["result1"] = $talent1->getTalentMasterList($now);
     $data["result2"] = $talent2->getTalentCategoryList($now);
-    $data["member"] = $talent3->getAllTalentMasterList();
+    $data["result2"] = $talent3->getTalentCategoryList($now);
+    $data["member"] = $talent4->getAllTalentMasterList();
     $data["max"] = ceil( count($data["member"]) / 20 );
     $data["now"] = $now;
 

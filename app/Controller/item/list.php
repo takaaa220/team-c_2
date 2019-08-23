@@ -15,8 +15,6 @@ $app->get('/item/list/', function (Request $request, Response $response) {
     //アイテム一覧を取得し、戻り値をresultに格納します
     $data["result"] = $item->getItemList();
 
-    
-
     // Render index view
     return $this->view->render($response, 'item/list.twig', $data);
 

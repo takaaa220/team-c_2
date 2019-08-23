@@ -5,21 +5,17 @@ use Slim\Http\Response;
 // 有名人一覧 (検索もはいるところ)
 $app->get('/talent/list', function (Request $request, Response $response, $args) {
 
-  // dd(1234);
       $data = [];
-      //$x = "浅田真央";
 
     $talent1 = new Talent($this->db);
     $talent2 = new Talent($this->db);
     $talent3 = new Talent($this->db);
 
-    if(!isset($_SERVER['QUERY_STRING'])){ // $_GET['page_id'] はURLに渡された現在のページ数
+    if(empty($_SERVER['QUERY_STRING'])){
         $now = 1; // 設定されてない場合は1ページ目にする
     }else{
         $now = $_SERVER['QUERY_STRING'];
     }
-    //$now = $_SERVER['QUERY_STRING'];
-    //dd($now);
 
     $data["result1"] = $talent1->getTalentMasterList($now);
     $data["result2"] = $talent2->getTalentCategoryList($now);

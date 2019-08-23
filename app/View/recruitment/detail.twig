@@ -88,19 +88,19 @@
     <a href="#" class="Tab__Item">支援者一覧</a>
   </div>
 
-  {% if false %}
+  {% if session.user_info == "" %}
     <div class="RecruitmentLogin">
       <h3 class="RecruitmentLogin__Title">
         この不幸な人を支援するには
         <br>
         ログインが必要です
       </h3>
-      <form class="RecruitmentForm">
+      <form class="RecruitmentForm" method="POST" action="/login/">
         <div class="form-group RecruitmentForm__Item">
-          <input type="email" class="RecruitmentForm__Input form-control" placeholder="メールアドレス">
+          <input type="email" class="RecruitmentForm__Input form-control" placeholder="メールアドレス" name="email">
         </div>
         <div class="form-group RecruitmentForm__Item">
-          <input type="password" class="RecruitmentForm__Input form-control" placeholder="パスワード">
+          <input type="password" class="RecruitmentForm__Input form-control" placeholder="パスワード" name="password">
         </div>
         <input type="submit" value="ログイン" class="btn btn--blue" />
       </form>

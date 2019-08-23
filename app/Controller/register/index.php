@@ -14,6 +14,8 @@ $app->get('/register/', function (Request $request, Response $response) {
         return $response->withRedirect('/mypage');
     }
 
+    $this->session->delete('forwarding_path');
+
     //GETされた内容を取得します。
     $data = $request->getQueryParams();
 

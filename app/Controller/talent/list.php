@@ -5,6 +5,9 @@ use Slim\Http\Response;
 // 有名人一覧 (検索もはいるところ)
 $app->get('/talent', function (Request $request, Response $response, $args) {
 
+  $path = $request->getUri()->getPath();
+  $this->session->set('forwarding_path', $path);
+
   // dd(1234);
       $data = [];
       //$x = "浅田真央";

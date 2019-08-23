@@ -6,20 +6,96 @@
 
 {# 適用させたいスタイルシートのパスを指定します #}
 {% block header_scripts_add %}
+    <link href="/assets/css/top.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="page-header text-center">
-        <h1>サービス名</h1>
-    </div>
-    <div class="container">
-        <div class="box">
-            <div class="row">
-                ここにコンテンツが入る
+    <div class="Top">
+        <div class="TopFirstView">
+            <p class="TopFirstView__Title">
+                良さげなやつ
+                <br>
+                良さげなやつ
+                <br>
+                良さげなやつ
+            </p>
+            <p class="TopFirstView__Description">
+                辛いとき、苦しいときに
+                <br>
+                好きな有名人に励まされてみませんか？
+            </p>
+            <a href="/register/" class="btn btn--blue">
+                新規登録
+            </a>
+        </div>
+        <div class="TopUse">
+            <h2 class="TopUse__Title">励まされるには</h2>
+            <div class="TopUse__Block">
+                <h3 class="TopUse__SubTitle">1. メッセージをもらいたい人を探す</h3>
+                <p class="TopUse__Content">
+                    あなたの好きな有名人を探しましょう！
+                    <br>
+                    アイドル、野球選手、お笑い芸人など、幅広いジャンルから有名人を探すことができます。
+                </p>
+                <a class="btn btn--red" href="/talent">探してみる</a>
+            </div>
+            <div class="TopUse__Block">
+                <h3 class="TopUse__SubTitle">2. 何が起きたかを入力して、申し込む</h3>
+                <p class="TopUse__Content">
+                    あなたを襲った不幸について、説明してください。
+                    <br>
+                    それをみて、有名人の方は、励ましのメッセージを送ります。
+                </p>
+            </div>
+            <div class="TopUse__Block">
+                <h3 class="TopUse__SubTitle">3. いろんな人に支援してもらう</h3>
+                <p class="TopUse__Content">
+                    その後、一般の人に支援を申し込むこともできます。
+                    <br>
+                    何があったかを詳しく説明しよう！
+                    同情した方が、支援してくれることがあります。
+                </p>
+            </div>
+            <h2 class="TopUse__Title">他の人を励ます</h2>
+            <div class="TopUse__Block">
+                <h3 class="TopUse__SubTitle">1. 不幸な人を探す</h3>
+                <p class="TopUse__Content">
+                    悲しい思いをして、励まして欲しい人がいます。
+                    <br>
+                    失恋した、物を無くしたなど、様々な理由で
+                    悲しい思いをした人を探すことができます。
+                </p>
+                <a class="btn btn--red" href="/recruitment">探してみる</a>
+            </div>
+            <div class="TopUse__Block">
+                <h3 class="TopUse__SubTitle">2. 何が起きたかを入力して、申し込む</h3>
+                <p class="TopUse__Content">
+                    悲しい思いをした人を励ますために
+                    <br>
+                    支援したり、メッセージを送ったりできます。
+                </p>
+            </div>
+        </div>
+        <div class="TopInterview">
+            <h2 class="TopInterview__Title">ユーザインタビュー</h2>
+            <div class="TopInterview__ComingSoon">
+                <p>Coming Soon...</p>
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener( "scroll", () => {
+            const header = document.getElementById("js-header");
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            if (scrollTop > 300) {
+                header.classList.add("Header--active");
+            } else {
+                header.classList.remove("Header--active");
+            }
+        });
+    </script>
+
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}

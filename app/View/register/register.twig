@@ -6,12 +6,13 @@
 
 {# このページに適用させたいスタイルシートを指定します #}
 {% block header_scripts_add %}
+    <link href="/assets/css/auth.css" rel="stylesheet">
 {% endblock %}
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
     <div class="page-header text-center">
-        <h1>会員登録</h1>
+        <h1>新規登録</h1>
     </div>
     <div class="container">
         <div class="box">
@@ -25,33 +26,41 @@
                                 </div>
                             {% endif %}
                             <div class="form-group">
+                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> 氏名</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ name }}" required title="Please enter your name" placeholder="氏名">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> ニックネーム</label>
+                                <input type="text" class="form-control" id="nickname" name="nickname" value="{{ nickname }}" required title="Please enter your nickname" placeholder="ニックネーム">
+                            </div>
+
+                            <div class="form-group cp_ipselect cp_sl01">
+                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> 性別</label>
+                                <select required>
+                                  <option value="" hidden></option>
+                                  <option value="1">男</option>
+                                  <option value="2">女</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> 職業</label>
+                                <input type="text" class="form-control" id="business" name="business" value="" required title="Please enter your business" placeholder="職業">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="email" class="control-label"> <span class="badge badge-danger">必須</span> メールアドレス</label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{ email }}" required title="Please enter you email" placeholder="example@gmail.com">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> パスワード</label>
-                                <input type="password" class="form-control" id="password" name="password" value="" required title="Please enter your password" placeholder="******">
+                                <input type="password" class="form-control" id="password" name="password" value="" required title="Please enter your password" placeholder="パスワード">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> パスワード再</label>
-                                <input type="password" class="form-control" id="password_re" name="password_re" value="" required title="Please re enter your password" placeholder="******">
+                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> パスワード確認</label>
+                                <input type="password" class="form-control" id="password_re" name="password_re" value="" required title="Please re enter your password" placeholder="パスワード確認">
                             </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> ニックネーム</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{ name }}" required title="Please enter your name" placeholder="Toru">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> 郵便番号</label>
-                                <input type="text" class="form-control " id="zipcode" name="zipcode" value="{{ zipcode }}" style="width: 30%" required title="Please enter your zipcode" placeholder="110-0011">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> 住所</label>
-                                <input type="text" class="form-control" id="address" name="address" value="{{ address }}" required title="Please enter your address" placeholder="東京都千代田区霞が関２丁目１−１">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label"> <span class="badge badge-danger">必須</span> 電話番号</label>
-                                <input type="tel" class="form-control" id="tel" name="tel" value="{{ tel }}" required title="Please enter your tel no" placeholder="03-1234-5678">
-                            </div>
+
                             <div class="form-group">
                                 <label for="password" class="control-label">利用規約</label>
                                 <textarea class="form-control" rows="10" readonly>
@@ -117,10 +126,7 @@
 本サービスに関して紛争が生じた場合には，当社の本店所在地を管轄する裁判所を専属的合意管轄とします。
                                 </textarea>
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" id="agree"><label for="agree">上記利用規約に同意します</label>
-                            </div>
-                            <button type="submit" class="btn btn-info btn-block">新規登録</button>
+                            <button type="submit" class="btn btn-info btn-block">利用規約に同意して登録</button>
                         </form>
                     </div>
                 </div>

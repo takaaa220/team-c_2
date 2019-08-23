@@ -3,13 +3,17 @@ use Model\Dao\Talent;
 use Slim\Http\Request;
 use Slim\Http\Response;
 // 有名人一覧 (検索もはいるところ)
-$app->get('/talent/list', function (Request $request, Response $response, $args) {
+$app->get('/talent', function (Request $request, Response $response, $args) {
+
+  $path = $request->getUri()->getPath();
+  $this->session->set('forwarding_path', $path);
 
       $data = [];
 
     $talent1 = new Talent($this->db);
     $talent2 = new Talent($this->db);
     $talent3 = new Talent($this->db);
+
 
     if(empty($_SERVER['QUERY_STRING'])){
         $now = 1; // 設定されてない場合は1ページ目にする

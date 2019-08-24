@@ -31,11 +31,11 @@ return [
 
             'connection' => [
                 'driver' => 'pdo_mysql',
-                'host' => '127.0.0.1',
-                'port' => '3306',
-                'user' => 'team-c',
-                'password' => 'team-c!',
-                'dbname' => 'team-c',
+                'host' => getenv("DB_HOST"),
+                'port' => getenv("DB_PORT"),
+                'user' => getenv("DB_USER"),
+                'password' => getenv("DB_PASSWORD"),
+                'dbname' => getenv("DB_NAME"),
                 'charset' => 'utf8'
             ]
         ]

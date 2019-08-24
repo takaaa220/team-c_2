@@ -1,28 +1,63 @@
-# Web Service Using Slim Framework 3 Skeleton Application
+## 環境構築
 
-This is a sample web application using Slim3 for 2021 graduates intern event for CERES INC.
+Docker をインストールしていない人は Docker をインストールする．
 
-# Library Using
+### 初回起動時
 
-- slim/twig-view
-- twig/extensions
-- doctorine/dbal
-- bryanjhv/slim-session
-- Bootstrap4
- 
-# MVC Root
+ビルドと container start
 
-- Model (DAO)
-   - app/Model
+```
+docker-compose build
+docker-compose up
+```
 
-- View (TWIG)
-   - app/View
+依存ライブラリのインストール
 
-- Controller (Routes)
-   - app/Controller
-   
-# To Start Builtin Web server
+```
+docker-compose exec web composer install
+```
 
-type below
+テーブルの作成
 
-    php -S localhost:8080 -t public public/index.php
+```
+docker-compose exec db bash
+cd db
+./create_database.sh
+```
+
+### ２回目以降
+
+```
+docker-compose up
+```
+
+で起動できると思います．
+
+## 開発する場合
+
+### mysql との接続
+
+```
+docker-compose exec db mysql -u root -p$MYSQL_PASSWORD $MYSQL_DATABASE
+```
+
+### テーブルを増やす
+
+db/sql 配下のファイルを参考にして，新規ファイル作成
+
+```
+docker-compose exec db bash
+mysql -u root -p$MYSQL_PASSWORD $MYSQL_DATABASE < db/sql/(作ったファイルのパス)
+```
+
+### PHP にパッケージ加えたい
+
+```
+docker-compose exec web composer require (パッケージのなまえ)
+```
+
+(名前などは調べてください)
+
+## deploy
+
+頑張ってください

@@ -8,3 +8,6 @@
 .remote-sync.json
 .idea/dictionaries/y_fukumoto.xml
 .idea/
+
+mysql_data/**
+vendor/**

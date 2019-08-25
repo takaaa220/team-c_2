@@ -1,12 +1,24 @@
 version: "3"
 
 services:
+  nginx:
+    container_name: harebare_nginx
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./:/var/www/html
+    links:
+      - web
   web:
     container_name: harebare_web
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
-    command: php -S 0.0.0.0:8080 -t public
+    # command: php -S 0.0.0.0:8080 -t public
     environment:
       DB_HOST: harebare_db
       DB_PORT: 3306
@@ -14,17 +26,20 @@ services:
       DB_PASSWORD: password
       DB_NAME: harebare_dev
     ports:
-      - 8080:8080
+      - 9000:9000
     links:
       - db
     volumes:
-      - ./:/app
+      - ./:/var/www/html
+      - vendor:/var/www/html/vendor
     stdin_open: true
     tty: true
 
   db:
     container_name: harebare_db
-    image: mysql:8.0
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
     command: mysqld --default-authentication-plugin=mysql_native_password
 
     ports:
@@ -40,4 +55,6 @@ services:
 
 volumes:
   mysql-data:
+    driver: local
+  vendor:
     driver: local

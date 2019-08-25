@@ -1,19 +1,25 @@
-FROM php:7-alpine
+FROM php:7-fpm
 
-RUN docker-php-ext-install pdo pdo_mysql mysqli
+RUN apt-get update && apt-get install -y \
+  git unzip \
+  && docker-php-ext-install pdo pdo_mysql mysqli
 
-WORKDIR /app
+WORKDIR /var/www/html
 
-ENV PATH /app/vendor/bin:$PATH
+ENV PATH /var/www/html/vendor/bin:$PATH
+
+EXPOSE 8080
 
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY composer.json .
-COPY composer.lock .
+COPY composer.json /tmp/composer.json
+COPY composer.lock /tmp/composer.lock
 
-RUN composer install
+ENV COMPOSER_ALLOW_SUPERUSER 1
+RUN composer install --no-scripts --no-autoloader -d /tmp
 
 COPY . .
 
-EXPOSE 8080
+RUN mv -n /tmp/vendor ./ \
+  && composer dump-autoload
